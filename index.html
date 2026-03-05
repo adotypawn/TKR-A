@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>TKR A 2K24/2K26</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+    emailjs.init("user_HokrM1TTNolfVDT9G");
+</script>
+</head>
+<body>
+
+    <!-- ⏳ Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2>TKR A</h2>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- 🎵 Audio -->
+    <audio id="myAudio" loop>
+        <source src="Hidden Message.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 🔘 Tombol Play/Pause -->
+    <div class="audio-control">
+        <button id="audioBtn" onclick="toggleAudio()">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <!-- 🏠 Header -->
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+        <span>TKR A</span>
+    </div>
+    
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Navigation dengan Ikon -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home" onclick="muncul('home'); closeMenu();">
+                <i class="fas fa-home"></i> Home
+            </a></li>
+            <li><a href="#foto" onclick="muncul('foto'); closeMenu();">
+                <i class="fas fa-camera"></i> Foto
+            </a></li>
+            <li><a href="#vidio" onclick="muncul('vidio'); closeMenu();">
+                <i class="fas fa-video"></i> Video
+            </a></li>
+            <li><a href="#about" onclick="muncul('about'); closeMenu();">
+                <i class="fas fa-users"></i> About
+            </a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero active">
+        <div class="hero-content">
+            <div class="hero-badge">SELAMAT DATANG</div>
+            <h1>WEBSITE <span class="highlight">TKR A</span></h1>
+            <p class="hero-subtitle">Kelas Teknik Kendaraan Ringan</p>
+            <p class="hero-year">2024 / 2026</p>
+            <div class="hero-description"><p>Website ini adalah kumpulan momen indah dari kelas TKR A.</p></div>
+        </div>
+    </section>
+
+    <!-- ========== BUKU TAMU ========== -->
+    <div class="guestbook">
+        <h3><i class="fas fa-comments"></i> Kritik / Saran</h3>
+
+        <!-- FITUR TAMBAHAN -->
+        <div class="guestbook-tools">
+            <button onclick="toggleAdmin()" class="btn-tool"><i class="fas fa-user-shield"></i> Admin</button>
+            <button onclick="exportJSON()" class="btn-tool"><i class="fas fa-download"></i> JSON</button>
+            <button onclick="exportTXT()" class="btn-tool"><i class="fas fa-file-alt"></i> TXT</button>
+            <button onclick="exportCSV()" class="btn-tool"><i class="fas fa-file-csv"></i> CSV</button>
+        </div>
+
+        <div class="search-box"><input type="text" id="searchInput" placeholder="Cari pesan..."></div>
+
+        <form id="guestbookForm">
+            <input type="text" id="guestName" placeholder="Nama Kamu" required>
+            <input type="email" id="guestEmail" placeholder="Email Kamu" required>
+            <textarea id="guestMessage" placeholder="Tulis pesan..." required></textarea>
+            <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+        </form>
+
+        <div id="guestbookStatus"></div>
+        <div id="guestbookEntries"></div>
+    </div>
+
+
+<!-- ============================
+     SECTION VIDEO (12 Video)
+============================ -->
+<section id="vidio" class="video-section">
+    <h2><i class="fas fa-video"></i> Video</h2>
+    <div class="video-container">
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="1.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="2.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="3.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="4.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="5.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="6.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="7.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="8.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="9.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="10.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="11.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video">
+            <video autoplay muted loop playsinline>
+                <source src="12.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+    </div>
+</section>
+
+<!-- ============================
+     SECTION FOTO (24 Foto)
+============================ -->
+<section id="foto" class="photo-section">
+    <h2><i class="fas fa-camera"></i> Galeri Foto</h2>
+    <div class="foto-list">
+        
+        <!-- Baris 1 -->
+        <div class="foto-item"><img src="1.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="2.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="3.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="4.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+        <!-- Baris 2 -->
+        <div class="foto-item"><img src="5.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="6.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="7.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="8.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+        <!-- Baris 3 -->
+        <div class="foto-item"><img src="9.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="10.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="11.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="12.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+        <!-- Baris 4 -->
+        <div class="foto-item"><img src="13.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="14.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="15.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="16.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+        <!-- Baris 5 -->
+        <div class="foto-item"><img src="17.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="18.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="19.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="20.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+        <!-- Baris 6 -->
+        <div class="foto-item"><img src="21.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="22.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="23.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        <div class="foto-item"><img src="24.jpg" class="foto-card" onclick="openModal(this.src)"></div>
+        
+    </div>
+</section>
+
+    <!-- ℹ️ Section ABOUT -->
+    <section id="about" class="about-section">
+        <h2><i class="fas fa-users"></i> Tentang Kami</h2>
+        
+        <div class="about-cards">
+            <div class="card">
+                <i class="fas fa-school"></i>
+                <h3>Jurusan</h3>
+                <p>Teknik Kendaraan Ringan</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h3>Sekolah</h3>
+                <p>SMK Muhammadiyah 2 Cileungsi</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Tahun Ajaran</h3>
+                <p>2024/2026</p>
+            </div>
+        </div>
+
+        <!-- ⏰ Countdown -->
+        <div class="countdown">
+            <h3><i class="fas fa-clock"></i> Hitung Mundur Kelulusan</h3>
+            <div id="countdownTimer">
+                <div class="time-box"><span id="days">00</span><p>Hari</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📸 Modal Foto -->
+    <div id="fotoModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgZoom">
+    </div>
+
+    <!-- ⬆️ Back to Top -->
+    <button id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 📌 Footer -->
+    <footer>
+        <h2>Website Ini Dibuat Oleh Siswa TKR A 24/26</h2>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2024 TKR A - All Rights Reserved</p>
+    </footer>
+
+    <script src="js/index.js"></script>
+
+    <!-- ⏳ Loader JS -->
+    <script>
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('hide');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
