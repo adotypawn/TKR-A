@@ -99,20 +99,13 @@ const countdownTimer = setInterval(function() {
 // ============================
 // 5. AUDIO CONTROL
 // ============================
-function toggleAudio() {
-    const audio = document.getElementById('myAudio');
-    const btn = document.getElementById('audioBtn');
-    
-    if (audio && btn) {
+    window.addEventListener('click', function() {
+        const audio = document.getElementById("myAudio");
         if (audio.paused) {
             audio.play();
-            btn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            audio.pause();
-            btn.innerHTML = '<i class="fas fa-play"></i>';
         }
-    }
-}
+    }, { once: true }); // 'once: true' memastikan ini hanya berjalan satu kali
+
 
 // ============================
 // 6. BACK TO TOP
