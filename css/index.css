@@ -1781,81 +1781,66 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     background:#00ff00; color:#000; z-index:3000; border-radius:6px;
     transition:0.4s; font-weight:bold;
 }
-
-:root {
-    --cyber-red: #ff0000;
-    --dark-bg: #000000;
-}
-
-.piston-container {
-    width: 100%;
-    max-width: 400px;
-    height: 600px;
+.engine-wrap {
+    background: #000;
+    padding: 50px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: var(--dark-bg);
-    margin: 0 auto;
-    border: 2px solid var(--cyber-red);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-    overflow: hidden;
 }
 
-.piston-svg {
-    width: 100%;
-    height: 100%;
+.cyber-piston {
+    width: 300px;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
 }
 
-/* BLOK SILINDER (Gaya Transparan Cyber) */
-.cylinder-block {
-    fill: none;
-    stroke: var(--cyber-red);
-    stroke-width: 2;
-    stroke-opacity: 0.3;
+/* ANIMASI 1: Gerakan Naik Turun Keseluruhan */
+.engine-motion {
+    animation: stroke-movement 1.2s infinite ease-in-out;
 }
 
-/* --- ANIMASI UTAMA --- */
-
-/* 1. Kelompok Piston Head (Hanya Naik-Turun / Translate) */
-.piston-head-group {
-    animation: piston-stroke 2s ease-in-out infinite alternate;
+/* ANIMASI 2: Efek Ledakan Bensin */
+.explosion {
+    opacity: 0;
+    filter: blur(10px);
+    animation: combustion 1.2s infinite ease-in-out;
 }
 
-/* 2. Kelompok Connecting Rod (Naik-Turun + Rotasi Kompleks) */
-.connecting-rod-group {
-    /* Menetapkan titik rotasi di lubang pin atas (200, 170) */
-    transform-origin: 200px 170px;
-    animation: rod-movement 2s ease-in-out infinite alternate;
+/* ANIMASI 3: Putaran Stang Piston (Ayunan) */
+.con-rod {
+    transform-origin: 200px 160px;
+    animation: rod-swing 1.2s infinite ease-in-out;
 }
 
-/* --- KEYFRAMES --- */
-
-/* Gerakan Naik-Turun Kepala Piston */
-@keyframes piston-stroke {
-    from { transform: translateY(0px); }
-    to { transform: translateY(280px); } /* Jarak Stroke */
+/* KEYFRAMES */
+@keyframes stroke-movement {
+    0%, 100% { transform: translateY(0); } /* TMA (Atas) */
+    50% { transform: translateY(250px); }  /* TMB (Bawah) */
 }
 
-/* Gerakan Kompleks Stang Piston (Sinkron dengan Stroke) */
-@keyframes rod-movement {
-    0% { 
-        transform: translateY(0px) rotate(0deg); 
+@keyframes combustion {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(2.5); /* Ledakan saat di atas */
     }
-    25% {
-        transform: translateY(70px) rotate(15deg); /* Mengayun ke kanan */
-    }
-    50% {
-        transform: translateY(140px) rotate(0deg); /* Lurus di tengah */
-    }
-    75% {
-        transform: translateY(210px) rotate(-15deg); /* Mengayun ke kiri */
-    }
-    100% { 
-        transform: translateY(280px) rotate(0deg); /* Lurus di bawah (TMB) */
+    10%, 90% { 
+        opacity: 0; 
+        transform: scale(1);
     }
 }
 
-/* Detail Glow Tambahan */
-.piston-ring, .big-end-pin {
-    filter: url(#glow);
+@keyframes rod-swing {
+    0%, 50%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); } /* Mengayun Kanan */
+    75% { transform: rotate(-20deg); } /* Mengayun Kiri */
+}
+
+/* Kruk As Berputar murni */
+.crank-pin {
+    transform-origin: 200px 480px;
+    animation: spin-crank 1.2s infinite linear;
+}
+
+@keyframes spin-crank {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
