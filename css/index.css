@@ -1780,51 +1780,55 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     position:fixed; top:20px; right:20px; padding:12px 18px;
     background:#00ff00; color:#000; z-index:3000; border-radius:6px;
     transition:0.4s; font-weight:bold;
-}.engine-master {
+}
+
+.engine-master {
     background: radial-gradient(circle, #1a0000 0%, #000 70%);
-    padding: 60px;
+    padding: 40px;
     display: flex;
     justify-content: center;
     border: 1px solid #222;
+    overflow: hidden;
 }
 
 .ultra-piston {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
 }
 
-/* Gerakan Piston (Linear Interpolation) */
+/* 1. Gerakan Piston Naik-Turun */
 .piston-assembly {
-    animation: engine-cycle 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
+    animation: engine-cycle 1.2s infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-/* Ayunan Stang Piston yang Akurat */
-.con-rod-ultra {
+/* 2. Gerakan Gagang Berayun (Master Group) */
+.con-rod-master {
     transform-origin: 200px 170px;
-    animation: rod-swing-ultra 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
+    animation: rod-swing-ultra 1.2s infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-/* Efek Ledakan Saat TMA */
-.power-stroke {
-    opacity: 0;
-    animation: flash 1s infinite;
-}
-
-/* Putaran Kruk As */
+/* 3. Putaran Kruk As */
 .crank-web {
     transform-origin: 200px 480px;
-    animation: crank-rotate 1s infinite linear;
+    animation: crank-rotate 1.2s infinite linear;
 }
 
-/* KEYFRAMES Mekanik */
+/* 4. Efek Ledakan */
+.power-stroke {
+    opacity: 0;
+    animation: flash 1.2s infinite;
+}
+
+/* --- KEYFRAMES --- */
 @keyframes engine-cycle {
-    0%, 100% { transform: translateY(0); } /* Titik Mati Atas */
-    50% { transform: translateY(270px); } /* Titik Mati Bawah */
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(250px); }
 }
 
 @keyframes rod-swing-ultra {
     0%, 50%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(18deg); }
-    75% { transform: rotate(-18deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
 }
 
 @keyframes crank-rotate {
@@ -1833,27 +1837,16 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
 }
 
 @keyframes flash {
-    0% { opacity: 1; transform: scale(1.5); filter: blur(5px); }
-    10%, 100% { opacity: 0; transform: scale(0.5); }
+    0% { opacity: 1; transform: scale(1.5); filter: blur(10px); }
+    15%, 100% { opacity: 0; transform: scale(0.8); }
 }
 
-/* Efek Neon Ring Bergetar */
 .neon-ring {
     box-shadow: 0 0 15px #ff0000;
-    animation: ring-glow 0.1s infinite alternate;
+    animation: ring-glow 0.2s infinite alternate;
 }
 
 @keyframes ring-glow {
-    from { opacity: 0.8; }
-    to { opacity: 1; filter: brightness(1.5); }
-}
-/* Pastikan animasi rod-swing dipasang di MASTER-nya, bukan di path-nya saja */
-.con-rod-master {
-    transform-origin: 200px 170px; /* Titik putar di tengah pen atas */
-    animation: rod-swing-ultra 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
-}
-
-/* Hapus animasi dari con-rod-ultra jika masih ada agar tidak double */
-.con-rod-ultra {
-    animation: none;
+    from { opacity: 0.7; }
+    to { opacity: 1; filter: brightness(1.8); }
 }
