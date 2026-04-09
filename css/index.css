@@ -1780,67 +1780,71 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     position:fixed; top:20px; right:20px; padding:12px 18px;
     background:#00ff00; color:#000; z-index:3000; border-radius:6px;
     transition:0.4s; font-weight:bold;
-}
-.engine-wrap {
-    background: #000;
-    padding: 50px;
+}.engine-master {
+    background: radial-gradient(circle, #1a0000 0%, #000 70%);
+    padding: 60px;
     display: flex;
     justify-content: center;
+    border: 1px solid #222;
 }
 
-.cyber-piston {
-    width: 300px;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+.ultra-piston {
+    width: 350px;
 }
 
-/* ANIMASI 1: Gerakan Naik Turun Keseluruhan */
-.engine-motion {
-    animation: stroke-movement 1.2s infinite ease-in-out;
+/* Gerakan Piston (Linear Interpolation) */
+.piston-assembly {
+    animation: engine-cycle 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
-/* ANIMASI 2: Efek Ledakan Bensin */
-.explosion {
+/* Ayunan Stang Piston yang Akurat */
+.con-rod-ultra {
+    transform-origin: 200px 170px;
+    animation: rod-swing-ultra 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+/* Efek Ledakan Saat TMA */
+.power-stroke {
     opacity: 0;
-    filter: blur(10px);
-    animation: combustion 1.2s infinite ease-in-out;
+    animation: flash 1s infinite;
 }
 
-/* ANIMASI 3: Putaran Stang Piston (Ayunan) */
-.con-rod {
-    transform-origin: 200px 160px;
-    animation: rod-swing 1.2s infinite ease-in-out;
-}
-
-/* KEYFRAMES */
-@keyframes stroke-movement {
-    0%, 100% { transform: translateY(0); } /* TMA (Atas) */
-    50% { transform: translateY(250px); }  /* TMB (Bawah) */
-}
-
-@keyframes combustion {
-    0%, 100% { 
-        opacity: 1; 
-        transform: scale(2.5); /* Ledakan saat di atas */
-    }
-    10%, 90% { 
-        opacity: 0; 
-        transform: scale(1);
-    }
-}
-
-@keyframes rod-swing {
-    0%, 50%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(20deg); } /* Mengayun Kanan */
-    75% { transform: rotate(-20deg); } /* Mengayun Kiri */
-}
-
-/* Kruk As Berputar murni */
-.crank-pin {
+/* Putaran Kruk As */
+.crank-web {
     transform-origin: 200px 480px;
-    animation: spin-crank 1.2s infinite linear;
+    animation: crank-rotate 1s infinite linear;
 }
 
-@keyframes spin-crank {
+/* KEYFRAMES Mekanik */
+@keyframes engine-cycle {
+    0%, 100% { transform: translateY(0); } /* Titik Mati Atas */
+    50% { transform: translateY(270px); } /* Titik Mati Bawah */
+}
+
+@keyframes rod-swing-ultra {
+    0%, 50%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(18deg); }
+    75% { transform: rotate(-18deg); }
+}
+
+@keyframes crank-rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+@keyframes flash {
+    0% { opacity: 1; transform: scale(1.5); filter: blur(5px); }
+    10%, 100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Efek Neon Ring Bergetar */
+.neon-ring {
+    box-shadow: 0 0 15px #ff0000;
+    animation: ring-glow 0.1s infinite alternate;
+}
+
+@keyframes ring-glow {
+    from { opacity: 0.8; }
+    to { opacity: 1; filter: brightness(1.5); }
+}
+
