@@ -298,7 +298,7 @@
     </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { getDatabase, ref, push, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBWH9-t8pHpJpGethE4VR40BPdadtxCBiQ",
@@ -321,7 +321,6 @@
     e.preventDefault();
     
     const name = document.getElementById('guestName').value;
-    // BAGIAN EMAIL DI SINI SUDAH DIHAPUS
     const message = document.getElementById('guestMessage').value;
 
     const postRef = ref(db, 'komentar');
@@ -329,35 +328,53 @@
 
     set(newPostRef, {
       nama: name,
-      // DATA EMAIL DI SINI SUDAH DIHAPUS
       pesan: message,
       waktu: new Date().toLocaleString('id-ID')
     }).then(() => {
-      Form.reset();
-      alert("Komentar terkirim ke database!");
+      form.reset(); // Sudah diperbaiki dari Form ke form
+      alert("Komentar terkirim!");
     });
   });
 
-  // --- 2. Fungsi Tampil Komentar Otomatis (Real-time) ---
+  // --- 2. Fungsi Tampil Komentar & Tombol Hapus ---
   onValue(ref(db, 'komentar'), (snapshot) => {
     displayArea.innerHTML = "";
     const data = snapshot.val();
+    
+    // Cek status admin dari index.js
+    const isAdmin = window.adminMode; 
+
     if (data) {
       Object.keys(data).reverse().forEach(key => {
         const item = data[key];
         const card = `
-          <div style="background:#111; border:1px solid red; padding:15px; border-radius:10px; margin-top:15px;">
+          <div style="background:#111; border:1px solid red; padding:15px; border-radius:10px; margin-top:15px; position:relative;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
                 <strong style="color:red; font-size:16px;">@${item.nama.toLowerCase().replace(/\s/g, '_')}</strong>
                 <small style="color:#555;">${item.waktu}</small>
             </div>
             <p style="margin-top:8px; color:#ddd; line-height:1.4;">${item.pesan}</p>
+
+            ${isAdmin ? `
+              <button onclick="hapusPesan('${key}')" style="background:red; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer; margin-top:10px; font-weight:bold;">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            ` : ""}
           </div>
         `;
         displayArea.innerHTML += card;
       });
     }
   });
+
+  // --- 3. Fungsi Hapus Data ---
+  window.hapusData = (key) => {
+    if(confirm("Hapus pesan ini secara permanen?")) {
+      remove(ref(db, 'komentar/' + key))
+        .then(() => alert("Terhapus!"))
+        .catch((err) => alert("Gagal: " + err));
+    }
+  };
 </script>
 </body>
 </html>
