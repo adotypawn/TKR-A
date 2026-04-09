@@ -174,3 +174,67 @@ window.hapusPesan = function(key) {
         console.error("Fungsi hapusData belum siap di index.html");
     }
 };
+/* =================================================
+   PISTON ENGINE CORE SYSTEM - TKR A VERSION
+================================================= */
+
+const EngineTKR = {
+    // Pengaturan Dasar
+    config: {
+        idleRPM: 1.0,  // Kecepatan lambat (detik)
+        fastRPM: 0.4,  // Kecepatan saat digas (detik)
+        isRunning: true
+    },
+
+    init() {
+        // Seleksi elemen penting
+        this.pistonMaster = document.querySelector('.piston-assembly');
+        this.conRod = document.querySelector('.con-rod-master');
+        this.crank = document.querySelector('.crank-web');
+        this.explosion = document.querySelector('.power-stroke');
+        this.container = document.querySelector('.engine-master');
+
+        if (!this.pistonMaster) return;
+
+        this.bindEvents();
+    },
+
+    // Fungsi untuk mengubah kecepatan animasi secara global
+    updateEngineSpeed(duration) {
+        const elements = [this.pistonMaster, this.conRod, this.crank, this.explosion];
+        
+        elements.forEach(el => {
+            if (el) {
+                el.style.animationDuration = `${duration}s`;
+            }
+        });
+    },
+
+    bindEvents() {
+        // Efek Gas Pol saat klik/sentuh mesin
+        const startGas = () => {
+            this.updateEngineSpeed(this.config.fastRPM);
+            this.container.style.boxShadow = "0 0 30px rgba(255, 0, 0, 0.4)";
+            this.container.style.transition = "0.2s";
+        };
+
+        const stopGas = () => {
+            this.updateEngineSpeed(this.config.idleRPM);
+            this.container.style.boxShadow = "none";
+        };
+
+        // Event Listeners (Mouse & Touch untuk HP)
+        this.container.addEventListener('mousedown', startGas);
+        this.container.addEventListener('mouseup', stopGas);
+        this.container.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            startGas();
+        });
+        this.container.addEventListener('touchend', stopGas);
+    }
+};
+
+// Jalankan sistem saat halaman selesai dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    EngineTKR.init();
+});
