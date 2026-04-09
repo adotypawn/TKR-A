@@ -174,3 +174,71 @@ window.hapusPesan = function(key) {
         console.error("Fungsi hapusData belum siap di index.html");
     }
 };
+/* =================================================
+   PISTON ENGINE CORE SYSTEM - HEIMU JOKI ENGINE
+================================================= */
+
+const EngineSystem = {
+    rpm: 1000, // Kecepatan awal
+    isRunning: true,
+    
+    init() {
+        this.pistonAssembly = document.querySelector('.piston-assembly');
+        this.explosionEffect = document.querySelector('.power-stroke');
+        this.engineContainer = document.querySelector('.engine-master');
+        
+        this.startEngine();
+        this.bindEvents();
+    },
+
+    // 1. Sinkronisasi Gerakan & RPM
+    setSpeed(newRpm) {
+        this.rpm = newRpm;
+        const duration = (60 / this.rpm).toFixed(2); // Menghitung detik per siklus
+        
+        // Update durasi animasi pada elemen SVG
+        const animatedElements = document.querySelectorAll('.piston-assembly, .con-rod-ultra, .crank-web, .power-stroke');
+        animatedElements.forEach(el => {
+            el.style.animationDuration = `${duration}s`;
+        });
+    },
+
+    // 2. Efek Getaran Kamera (Screen Shake)
+    // Berjalan setiap kali piston mencapai TMA (Top Dead Center)
+    applyVibration() {
+        if (!this.isRunning) return;
+        
+        // Menambahkan class shake ke container
+        this.engineContainer.style.transform = `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`;
+        
+        setTimeout(() => {
+            this.engineContainer.style.transform = 'translate(0,0)';
+        }, 50);
+    },
+
+    startEngine() {
+        // Loop untuk efek vibrasi yang sinkron dengan ledakan
+        setInterval(() => {
+            if (this.isRunning) {
+                this.applyVibration();
+            }
+        }, (60 / this.rpm) * 1000); // Sinkron dengan RPM
+    },
+
+    bindEvents() {
+        // Contoh: Jika user klik mesin, RPM bertambah (Gas Pol!)
+        this.engineContainer.addEventListener('mousedown', () => {
+            this.setSpeed(3000); // Naik ke 3000 RPM
+            this.engineContainer.style.filter = "contrast(1.2) brightness(1.2)";
+        });
+
+        this.engineContainer.addEventListener('mouseup', () => {
+            this.setSpeed(1000); // Balik ke Idle
+            this.engineContainer.style.filter = "contrast(1) brightness(1)";
+        });
+    }
+};
+
+// Jalankan saat DOM siap
+document.addEventListener('DOMContentLoaded', () => EngineSystem.init());
+
