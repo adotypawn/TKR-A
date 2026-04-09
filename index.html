@@ -330,10 +330,22 @@
       pesan: message,
       waktu: new Date().toLocaleString('id-ID')
     }).then(() => {
-      form.reset();
-      alert("Komentar terkirim ke database!");
-    });
-  });
+// ... kode pengiriman data kamu ...
+Form.reset(); 
+
+Swal.fire({
+  title: 'Terkirim!',
+  text: 'Komentar kamu sudah terkirim.',
+  icon: 'success',
+  timer: 3000, // Akan tertutup otomatis dalam 3 detik
+  showConfirmButton: false, // Menghilangkan tombol OK agar lebih simpel
+  timerProgressBar: true, // Ada garis loading di bawahnya
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+
 
   // --- 2. Fungsi Tampil Komentar Otomatis (Real-time) ---
   onValue(ref(db, 'komentar'), (snapshot) => {
