@@ -90,7 +90,6 @@
 
         <form id="guestbookForm">
             <input type="text" id="guestName" placeholder="Nama Kamu" required>
-            <input type="email" id="guestEmail" placeholder="Email Kamu" required>
             <textarea id="guestMessage" placeholder="Tulis pesan..." required></textarea>
             <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
         </form>
@@ -294,12 +293,10 @@
             }, 500);
         });
     </script>
-
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-  // GANTI INI DENGAN CONFIG ASLI DARI FIREBASE KAMU
   const firebaseConfig = {
     apiKey: "AIzaSyBWH9-t8pHpJpGethE4VR40BPdadtxCBiQ",
     authDomain: "tkra-3be6f.firebaseapp.com",
@@ -321,7 +318,7 @@
     e.preventDefault();
     
     const name = document.getElementById('guestName').value;
-    const email = document.getElementById('guestEmail').value;
+    // BAGIAN EMAIL DI SINI SUDAH DIHAPUS
     const message = document.getElementById('guestMessage').value;
 
     const postRef = ref(db, 'komentar');
@@ -329,7 +326,7 @@
 
     set(newPostRef, {
       nama: name,
-      email: email,
+      // DATA EMAIL DI SINI SUDAH DIHAPUS
       pesan: message,
       waktu: new Date().toLocaleString('id-ID')
     }).then(() => {
