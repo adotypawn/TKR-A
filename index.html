@@ -74,15 +74,45 @@
             <p class="hero-subtitle">Kelas Teknik Kendaraan Ringan</p>
             <p class="hero-year">2024 / 2026</p>
             <div class="hero-description"><p>Website ini adalah kumpulan momen indah dari kelas TKR A.</p></div>
-        </div>
-<div class="engine-block">
-    <div class="cylinder">
-        <div class="piston-head">
-            <div class="piston-rings"></div>
-        </div>
-        <div class="connecting-rod"></div>
-    </div>
+        </div><div class="piston-container">
+    <svg viewBox="0 0 400 600" class="piston-svg">
+        <defs>
+            <linearGradient id="pistonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#333;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+            </linearGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <path class="cylinder-block" d="M100,50 L300,50 L300,550 L100,550 Z" />
+        
+        <g class="moving-parts">
+            <g class="piston-head-group">
+                <path class="piston-head" d="M110,100 C110,80 290,80 290,100 L290,200 L110,200 Z" fill="url(#pistonGrad)" stroke="#ff0000" stroke-width="3"/>
+                <rect class="piston-ring" x="110" y="120" width="180" height="5" rx="2" fill="#ff0000" filter="url(#glow)"/>
+                <rect class="piston-ring" x="110" y="140" width="180" height="5" rx="2" fill="#ff0000" filter="url(#glow)"/>
+                <circle class="piston-pin-hole" cx="200" cy="170" r="15" fill="#111" stroke="#ff0000" stroke-width="2"/>
+            </g>
+
+            <g class="connecting-rod-group">
+                <path class="connecting-rod" d="M190,170 L210,170 L220,450 L180,450 Z" fill="#1a1a1a" stroke="#ff0000" stroke-width="3"/>
+                <circle class="big-end" cx="200" cy="450" r="25" fill="#111" stroke="#ff0000" stroke-width="3"/>
+                <circle class="big-end-pin" cx="200" cy="450" r="10" fill="#ff0000" filter="url(#glow)"/>
+            </g>
+        </g>
+
+        <circle class="crankshaft" cx="200" cy="450" r="40" fill="none" stroke="#333" stroke-width="5" stroke-dasharray="10 10"/>
+    </svg>
 </div>
+
+
 
     </section>
 
