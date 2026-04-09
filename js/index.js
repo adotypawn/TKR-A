@@ -57,36 +57,40 @@ function scrollToTop() {
 // 3. MENU MOBILE
 // =================================================
 function toggleMenu() {
-    document.getElementById('navbar').classList.toggle('active');
-    document.querySelector('.menu-toggle').classList.toggle('active');
+    const navbar = document.getElementById('navbar');
+    const toggle = document.querySelector('.menu-toggle');
+    if (navbar && toggle) {
+        navbar.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
 }
 
 function closeMenu() {
-    document.getElementById('navbar').classList.remove('active');
-    document.querySelector('.menu-toggle').classList.remove('active');
+    const navbar = document.getElementById('navbar');
+    const toggle = document.querySelector('.menu-toggle');
+    if (navbar && toggle) {
+        navbar.classList.remove('active');
+        toggle.classList.remove('active');
+    }
 }
 
 // =================================================
 // 4. COUNTDOWN GRADUASI
 // =================================================
 const graduationDate = new Date("July 1, 2026 08:00:00").getTime();
-
 setInterval(() => {
     const now = new Date().getTime();
     const distance = graduationDate - now;
-    
     if (distance < 0) return;
 
-    // Tambahkan String() untuk membungkus angka agar menjadi teks
     document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24)));
     document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
     document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
     document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000));
 }, 1000);
 
-
 // =================================================
-// 5. SISTEM ADMIN & EXPORT (Firebase Helper)
+// 5. SISTEM ADMIN & EXPORT
 // =================================================
 window.adminMode = localStorage.getItem('isAdmin') === 'true';
 
@@ -126,15 +130,14 @@ function showNotif(text, color) {
     setTimeout(() => box.remove(), 2000);
 }
 
-// EXPORT: Mengambil teks dari tampilan guestbook
 function exportJSON() {
     const entries = document.getElementById("guestbookEntries").innerText;
     if(!entries || entries.includes("Belum ada pesan")) return alert("Tidak ada data.");
-    downloadFile("backup_komentar.txt", entries);
+    downloadFile("backup_tkra.txt", entries);
 }
 
 function exportTXT() { exportJSON(); }
-function exportCSV() { alert("Gunakan export TXT untuk saat ini."); }
+function exportCSV() { alert("Fitur CSV sedang dikembangkan."); }
 
 function downloadFile(filename, content) {
     const a = document.createElement("a");
@@ -144,7 +147,9 @@ function downloadFile(filename, content) {
     a.click();
 }
 
-// SEARCH FUNCTION
+// =================================================
+// 6. SEARCH & FILTER
+// =================================================
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     if(searchInput) {
@@ -157,3 +162,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/**
+ * FUNGSI HAPUS PESAN
+ * Ini adalah jembatan untuk memanggil fungsi hapusData yang ada di script module HTML
+ */
+window.hapusPesan = function(key) {
+    if (typeof window.hapusData === "function") {
+        window.hapusData(key);
+    } else {
+        console.error("Fungsi hapusData belum siap di index.html");
+    }
+};
