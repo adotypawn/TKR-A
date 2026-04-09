@@ -76,58 +76,56 @@
             <div class="hero-description"><p>Website ini adalah kumpulan momen indah dari kelas TKR A.</p>
    </div>
 </div>
-<div class="engine-master">
-    <svg viewBox="0 0 400 600" class="ultra-piston">
-        <defs>
-            <filter id="metalEffect">
-                <feSpecularLighting surfaceScale="5" specularConstant="1" specularExponent="20" lighting-color="#ff0000">
-                    <fePointLight x="-50" y="-100" z="200" />
-                </feSpecularLighting>
-                <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
-            </filter>
-            
-            <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#050505" />
-                <stop offset="50%" style="stop-color:#222" />
-                <stop offset="100%" style="stop-color:#050505" />
-            </linearGradient>
-            
-            <radialGradient id="fireRadial">
-                <stop offset="10%" stop-color="rgba(255,0,0,0.8)" />
-                <stop offset="100%" stop-color="transparent" />
-            </radialGradient>
-        </defs>
+<div class="engine-master"><svg viewBox="0 0 400 600" class="ultra-piston">
+    <defs>
+        <filter id="metalEffect">
+            <feSpecularLighting surfaceScale="5" specularConstant="1" specularExponent="20" lighting-color="#ff0000">
+                <fePointLight x="-50" y="-100" z="200" />
+            </feSpecularLighting>
+            <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+        </filter>
+        
+        <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#050505" />
+            <stop offset="50%" style="stop-color:#222" />
+            <stop offset="100%" style="stop-color:#050505" />
+        </linearGradient>
+        
+        <radialGradient id="fireRadial">
+            <stop offset="10%" stop-color="rgba(255,0,0,0.8)" />
+            <stop offset="100%" stop-color="transparent" />
+        </radialGradient>
+    </defs>
 
-        <rect x="100" y="50" width="200" height="500" fill="#050505" stroke="#111" />
-        <circle class="power-stroke" cx="200" cy="80" r="80" fill="url(#fireRadial)" />
+    <rect x="100" y="50" width="200" height="500" fill="#050505" stroke="#111" />
+    <circle class="power-stroke" cx="200" cy="80" r="80" fill="url(#fireRadial)" />
 
-        <g class="piston-assembly">
+    <g class="piston-assembly">
+        
+        <g class="con-rod-master">
+            <path d="M185,170 L215,170 L235,480 L165,480 Z" fill="#111" stroke="#ff0000" stroke-width="2" />
             
-            <g class="con-rod-master">
-                <path d="M185,170 L215,170 L235,480 L165,480 Z" fill="#111" stroke="#ff0000" stroke-width="2" />
-                
-                <circle cx="200" cy="480" r="28" fill="#000" stroke="#ff0000" stroke-width="3" filter="url(#metalEffect)" />
+            <circle cx="200" cy="480" r="28" fill="#000" stroke="#ff0000" stroke-width="3" filter="url(#metalEffect)" />
+            
+            <g class="crank-web">
                 <circle cx="200" cy="480" r="10" fill="none" stroke="#ff0000" stroke-width="4" />
                 <circle cx="200" cy="480" r="4" fill="#ff0000" />
             </g>
-
-            <g class="piston-head-master">
-                <rect x="105" y="80" width="190" height="130" fill="url(#chromeGrad)" stroke="#333" />
-                <rect class="neon-ring" x="105" y="100" width="190" height="4" fill="#ff0000" />
-                <rect class="neon-ring" x="105" y="115" width="190" height="3" fill="#ff0000" />
-                <path d="M105,180 Q105,210 135,210 L265,210 Q295,210 295,180" fill="#0a0a0a" stroke="#444" />
-                
-                <circle cx="200" cy="170" r="18" fill="#111" stroke="#ff0000" filter="url(#metalEffect)" />
-                <circle cx="200" cy="170" r="5" fill="#ff0000" />
-            </g>
         </g>
 
-        <g class="crankshaft-ultra">
-            <circle cx="200" cy="480" r="50" fill="none" stroke="#222" stroke-width="4" stroke-dasharray="8,4" />
-            <circle class="crank-web" cx="200" cy="430" r="20" fill="#000" stroke="#ff0000" stroke-width="3" />
+        <g class="piston-head-master">
+            <rect x="105" y="80" width="190" height="130" fill="url(#chromeGrad)" stroke="#333" />
+            <rect class="neon-ring" x="105" y="100" width="190" height="4" fill="#ff0000" />
+            <rect class="neon-ring" x="105" y="115" width="190" height="3" fill="#ff0000" />
+            <path d="M105,180 Q105,210 135,210 L265,210 Q295,210 295,180" fill="#0a0a0a" stroke="#444" />
+            
+            <circle cx="200" cy="170" r="18" fill="#111" stroke="#ff0000" filter="url(#metalEffect)" />
+            <circle cx="200" cy="170" r="5" fill="#ff0000" />
         </g>
-    </svg>
+    </g>
+</svg>
 </div>
+
 
     </section>
 
