@@ -791,73 +791,49 @@ footer h2 {
     color: #000000;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
 }
-
-/* ============================
-   LOADER (HITAM MERAH)
-============================ */
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease-out;
-    border: 5px solid #ff0000;
-}
-
-.loader.hide {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loader-content {
-    text-align: center;
-}
-
+/* =================================================
+   CSS LOADER CYBER (DUA KOTAK BERLAWANAN)
+================================================= */
 .spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid rgba(255, 0, 0, 0.2);
-    border-top: 5px solid #ff0000;
-    border-radius: 0;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    width: 70px; /* Sedikit diperbesar agar muat kotak dalam */
+    height: 70px;
+    border: 3px solid rgba(255, 0, 0, 0.1); /* Garis luar tipis */
+    border-top: 3px solid #ff0000; /* Garis aktif neon */
+    border-radius: 0; /* Tetap kotak murni */
+    animation: spin-outer 1.5s linear infinite; /* Putaran luar lebih lambat */
+    margin: 0 auto 30px;
+    position: relative; /* Penting untuk posisi kotak dalam */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); /* Efek glow luar */
 }
 
-@keyframes spin {
+/* Kotak Dalam (Cyber Core) */
+.spinner::after {
+    content: '';
+    position: absolute;
+    top: 10px; /* Jarak dari kotak luar */
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 3px solid rgba(255, 0, 0, 0.1);
+    border-bottom: 3px solid #ff0000; /* Garis aktif di bawah */
+    border-radius: 0;
+    animation: spin-inner 1s linear infinite; /* Putaran dalam lebih cepat */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Glow dalam lebih kuat */
+}
+
+/* Keyframe Putaran Luar (Searah Jarum Jam) */
+@keyframes spin-outer {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.loader-content h2 {
-    color: #ff0000;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 900;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    border: none;
+/* Keyframe Putaran Dalam (Berlawanan Jarum Jam) */
+@keyframes spin-inner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); } /* Nilai negatif untuk arah kebalikan */
 }
 
-.loader-content p {
-    color: #ff0000;
-    font-size: 1rem;
-    animation: blink 1s infinite;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
 
 /* ============================
    RESPONSIVE
