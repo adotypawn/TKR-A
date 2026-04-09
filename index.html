@@ -294,5 +294,70 @@
             }, 500);
         });
     </script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+  // GANTI INI DENGAN CONFIG ASLI DARI FIREBASE KAMU
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWH9-t8pHpJpGethE4VR40BPdadtxCBiQ",
+    authDomain: "tkra-3be6f.firebaseapp.com",
+    databaseURL: "https://tkra-3be6f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "tkra-3be6f",
+    storageBucket: "tkra-3be6f.firebasestorage.app",
+    messagingSenderId: "578959003469",
+    appId: "1:578959003469:web:48738ba29c6c31caf9f104"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const form = document.getElementById('guestbookForm');
+  const displayArea = document.getElementById('guestbookEntries');
+
+  // --- 1. Fungsi Simpan Komentar ---
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const message = document.getElementById('guestMessage').value;
+
+    const postRef = ref(db, 'komentar');
+    const newPostRef = push(postRef);
+
+    set(newPostRef, {
+      nama: name,
+      email: email,
+      pesan: message,
+      waktu: new Date().toLocaleString('id-ID')
+    }).then(() => {
+      form.reset();
+      alert("Komentar terkirim ke database!");
+    });
+  });
+
+  // --- 2. Fungsi Tampil Komentar Otomatis (Real-time) ---
+  onValue(ref(db, 'komentar'), (snapshot) => {
+    displayArea.innerHTML = "";
+    const data = snapshot.val();
+    if (data) {
+      Object.keys(data).reverse().forEach(key => {
+        const item = data[key];
+        const card = `
+          <div style="background:#111; border:1px solid red; padding:15px; border-radius:10px; margin-top:15px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="color:red; font-size:16px;">@${item.nama.toLowerCase().replace(/\s/g, '_')}</strong>
+                <small style="color:#555;">${item.waktu}</small>
+            </div>
+            <p style="margin-top:8px; color:#ddd; line-height:1.4;">${item.pesan}</p>
+          </div>
+        `;
+        displayArea.innerHTML += card;
+      });
+    }
+  });
+</script>
 </body>
 </html>
