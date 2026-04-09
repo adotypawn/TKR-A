@@ -1847,4 +1847,13 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     from { opacity: 0.8; }
     to { opacity: 1; filter: brightness(1.5); }
 }
+/* Pastikan animasi rod-swing dipasang di MASTER-nya, bukan di path-nya saja */
+.con-rod-master {
+    transform-origin: 200px 170px; /* Titik putar di tengah pen atas */
+    animation: rod-swing-ultra 1s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
 
+/* Hapus animasi dari con-rod-ultra jika masih ada agar tidak double */
+.con-rod-ultra {
+    animation: none;
+}
