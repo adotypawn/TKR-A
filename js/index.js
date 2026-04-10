@@ -238,3 +238,13 @@ const EngineTKR = {
 document.addEventListener('DOMContentLoaded', () => {
     EngineTKR.init();
 });
+// Script untuk menghentikan lagu saat pindah tab atau keluar aplikasi
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        // Jika pengguna pindah tab atau minimize, musik berhenti
+        Audio.pause();
+    } else {
+        // Jika kembali ke tab, musik bisa lanjut (opsional)
+        // audio.play(); 
+    }
+});
