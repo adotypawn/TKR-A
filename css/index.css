@@ -1853,60 +1853,60 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     to { opacity: 1; filter: brightness(1.5); }
 }
 /*navvar baru*/
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Tulisan TKR A di kiri, menu di kanan */
+#navbar {
+    display: flex; /* Mengaktifkan mode berderet */
+    justify-content: space-between; /* Logo kiri, Menu kanan */
     align-items: center;
-    padding: 10px 20px;
     background: #000;
+    padding: 10px 20px;
     border-bottom: 2px solid #ff0000;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
 }
 
-.nav-brand {
-    display: flex;
-    align-items: center;
+.nav-brand span {
     color: #ff0000;
     font-weight: bold;
-    font-size: 1.2rem;
-    gap: 10px; /* Jarak antara logo dan tulisan */
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px #ff0000;
 }
 
-/* Membuat Menu Berderet */
 .nav-links {
-    display: flex; /* INI KUNCINYA */
+    display: flex; /* Membuat li di dalamnya berderet ke samping */
     list-style: none;
-    gap: 20px; /* Jarak antar menu */
+    margin: 0;
+    padding: 0;
+    gap: 15px; /* Jarak antar menu */
 }
 
 .nav-links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    font-size: 0.8rem; /* Ukuran pas buat HP */
+    display: flex;
+    flex-direction: column; /* Icon di atas, teks di bawah (Cyber style) */
+    align-items: center;
     transition: 0.3s;
 }
 
+.nav-links li a i {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+    color: #ff0000;
+}
+
 .nav-links li a:hover {
-    color: #ff0000;
-    text-shadow: 0 0 10px #ff0000;
+    filter: brightness(1.5);
+    text-shadow: 0 0 5px #ff0000;
 }
 
-/* Sembunyikan icon hamburger di layar laptop */
-.menu-icon {
-    display: none;
-    color: #ff0000;
-    font-size: 1.5rem;
-}
-
-/* Responsif untuk HP (Redmi Note 8 kamu) */
-@media screen and (max-width: 768px) {
+/* Supaya tidak berantakan di HP yang layarnya kecil */
+@media screen and (max-width: 400px) {
     .nav-links {
-        display: none; /* Sembunyikan menu deret di HP agar tidak penuh */
+        gap: 8px;
     }
-    .menu-icon {
-        display: block; /* Munculkan icon garis tiga di HP */
+    .nav-links li a {
+        font-size: 0.7rem;
     }
 }
