@@ -1910,3 +1910,51 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
         font-size: 0.7rem;
     }
 }
+
+header {
+    display: flex;
+    justify-content: space-between; /* Logo kiri, Menu kanan */
+    align-items: center;
+    padding: 10px 20px;
+    background: #000;
+    border-bottom: 2px solid #ff0000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* CSS agar Nav-Links Berderet ke samping */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Jarak antar ikon */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ff0000;
+    filter: drop-shadow(0 0 5px #ff0000);
+}
+
+/* Sembunyikan Nav-Links di layar sangat kecil jika perlu, atau tetap biarkan */
+@media screen and (max-width: 480px) {
+    .nav-links {
+        gap: 10px;
+    }
+    .nav-links li a {
+        font-size: 1rem;
+    }
+}
