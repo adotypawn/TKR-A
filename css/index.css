@@ -1728,6 +1728,9 @@ footer h2 {
         gap: 5px;
     }
 }
+#komentar {
+display: none;
+}
 
 /* =========================
    CHAT BUBBLE SYSTEM
