@@ -1852,3 +1852,61 @@ body.light .guestbook, body.light .chat-entry { background:#f0f0f0; color:#000; 
     from { opacity: 0.8; }
     to { opacity: 1; filter: brightness(1.5); }
 }
+/*navvar baru*/
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Tulisan TKR A di kiri, menu di kanan */
+    align-items: center;
+    padding: 10px 20px;
+    background: #000;
+    border-bottom: 2px solid #ff0000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    gap: 10px; /* Jarak antara logo dan tulisan */
+}
+
+/* Membuat Menu Berderet */
+.nav-links {
+    display: flex; /* INI KUNCINYA */
+    list-style: none;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+/* Sembunyikan icon hamburger di layar laptop */
+.menu-icon {
+    display: none;
+    color: #ff0000;
+    font-size: 1.5rem;
+}
+
+/* Responsif untuk HP (Redmi Note 8 kamu) */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Sembunyikan menu deret di HP agar tidak penuh */
+    }
+    .menu-icon {
+        display: block; /* Munculkan icon garis tiga di HP */
+    }
+}
