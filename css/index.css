@@ -1958,3 +1958,45 @@ header {
         font-size: 1rem;
     }
 }
+/* Pastikan Header adalah induk Flex */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #000;
+    border-bottom: 2px solid #ff0000;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* Hilangkan kotak hitam melayang dan buat berderet */
+.nav-links {
+    display: flex !important; /* Paksa jadi flex */
+    position: static !important; /* Buang posisi melayang */
+    background: transparent !important; /* Buang kotak hitam */
+    flex-direction: row !important; /* Paksa berderet ke samping */
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ff0000;
+    filter: drop-shadow(0 0 5px #ff0000);
+}
+
+/* Sembunyikan tombol hamburger agar tidak double */
+.menu-toggle {
+    display: none !important;
+}
