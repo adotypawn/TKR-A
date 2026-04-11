@@ -1,9 +1,10 @@
-
 /* ============================
    RESET & BASE STYLES
 ============================ */
 * {
     margin: 0;
+
+
     padding: 0;
     box-sizing: border-box;
 }
@@ -2083,5 +2084,74 @@ header {
     }
     .nav-links {
         gap: 30px;
+    }
+}
+/* Reset Header agar tidak double */
+.main-header {
+    background: #000;
+    border-bottom: 2px solid #ff0000;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    padding: 10px 15px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-name {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ff0000;
+}
+
+/* Navigasi Berderet Horizontal */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 8px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav-list li a:hover {
+    color: #ff0000;
+    transform: translateY(-2px);
+}
+
+/* Hilangkan menu lama yang mengganggu */
+.menu-toggle, .menu-icon, .nav-brand ul {
+    display: none !important;
+}
+
+/* Aturan Khusus Mobile agar pas di HP */
+@media screen and (max-width: 480px) {
+    .nav-list {
+        gap: 8px;
+    }
+    .nav-list li a {
+        font-size: 1rem;
+    }
+    .brand-name {
+        font-size: 0.9rem;
     }
 }
