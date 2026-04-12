@@ -248,3 +248,7 @@ document.addEventListener("visibilitychange", function() {
         // audio.play(); 
     }
 });
+function toggleMenu() {
+    const navList = document.getElementById('menu-list');
+    navList.classList.toggle('active');
+}
