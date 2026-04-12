@@ -2362,3 +2362,110 @@ header {
     display: flex;
 }
 
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 80px;
+    background-color: #0d0d0d; /* Warna latar belakang gelap */
+}
+
+.main-header {
+    width: 100%;
+    background-color: #000;
+    border-bottom: 2px solid #ff0000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 50px;
+}
+
+/* Tombol Hamburger */
+.menu-toggle {
+    position: absolute;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Logo & Brand */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+}
+
+.brand-name {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Tombol Admin */
+.admin-toggle {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+/* Menu Dropdown */
+.nav-list {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 2px solid #ff0000;
+    padding: 20px;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+/* Class untuk memunculkan menu via JS */
+.nav-list.tampilkan {
+    display: flex !important;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #ff0000;
+}
