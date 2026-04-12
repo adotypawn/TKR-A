@@ -132,7 +132,7 @@ nav ul li a:hover {
 /* Hamburger Menu */
 .menu-toggle {
     display: none;
-    flex-direction: column;
+    flex-direction: row-reverse;
     cursor: pointer;
     gap: 6px;
 }
