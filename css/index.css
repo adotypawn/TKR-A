@@ -2264,12 +2264,13 @@ header {
     }
 
     .logo {
-        display: flex;
+        display: center;
         align-items: center;
         gap: 10px;
     }
 
     .logo img {
+        align-items: center;
         width: 35px;
         height: 35px;
         border: 1px solid #ff0000;
