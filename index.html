@@ -34,34 +34,31 @@
         <source src="Hidden Message.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 🏠 Header -->
-<header class="main-header">
-    <div class="header">
+    <!-- 🏠 Header -->  
+   <header class="main-header">
+        <div class="header-content">
+            <button class="menu-toggle" onclick="aksiMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="logo">
-            <img src="Logo.jpg" alt="Logo">
-            <span class="brand-name">TKR A</span>
-        </div>
+            <div class="logo">
+                <img src="Logo.jpg" alt="Logo">
+                <span class="brand-name">TKR A</span>
+            </div>
 
-        <button class="menu-toggle" onclick="aksiMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
+            <button class="admin-toggle" onclick="toggleAdmin()">
+                <i class="fas fa-user-shield"></i>
+            </button>
 
-        <button class="admin-toggle" onclick="toggleAdmin()">
-            <i class="fas fa-user-shield"></i>
-        </button>
-
-        <nav class="nav-horizontal">
-            <ul class="nav-list">
-                <li><a href="#home" onclick="muncul('home')"><i class="fas fa-home"></i></a></li>
-                <li><a href="#foto" onclick="muncul('foto')"><i class="fas fa-camera"></i></a></li>
-                <li><a href="#vidio" onclick="muncul('vidio')"><i class="fas fa-video"></i></a></li>
-                <li><a href="#about" onclick="muncul('about')"><i class="fas fa-users"></i></a></li>
-                <li><a href="#komentar" onclick="muncul('komentar')"><i class="fas fa-comments"></i></a></li>
+            <ul class="nav-list" id="daftar-menu">
+                <li><a href="#home" onclick="tutupMenu()"><i class="fas fa-home"></i></a></li>
+                <li><a href="#foto" onclick="tutupMenu()"><i class="fas fa-camera"></i></a></li>
+                <li><a href="#vidio" onclick="tutupMenu()"><i class="fas fa-video"></i></a></li>
+                <li><a href="#about" onclick="tutupMenu()"><i class="fas fa-users"></i></a></li>
             </ul>
-        </nav>
-    </div>
-</header>
+        </div>
+    </header>
+
 
     <!-- HERO SECTION -->
     <section id="home" class="hero active">
