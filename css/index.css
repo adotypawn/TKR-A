@@ -2469,3 +2469,20 @@ body {
 .nav-list li a:hover {
     color: #ff0000;
 }
+/* Keadaan awal: Menu sembunyi */
+.nav-list {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    background: #000;
+    border: 1px solid #ff0000;
+}
+
+/* Keadaan saat diklik: Menu muncul */
+/* CSS ini mencari elemen yang punya class nav-list SEKALIGUS class active */
+.nav-list.active {
+    display: flex !important;
+}
