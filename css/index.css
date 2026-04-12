@@ -2361,14 +2361,4 @@ header {
 .nav-list.active {
     display: flex;
 }
-/* Awalnya sembunyi */
-.nav-list {
-    display: none;
-    /* ... gaya desain lainnya ... */
-}
-
-/* Muncul saat tombol diklik (karena JavaScript menambah class 'active') */
-.nav-list.active {
-    display: flex !important;
-}
 
