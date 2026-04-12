@@ -2241,3 +2241,62 @@ header {
         padding: 10px;
     }
 }
+    /* Reset dasar agar tidak ada jarak kosong */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .main-header {
+        width: 100%;
+        background-color: #000; /* Warna hitam pekat */
+        border-bottom: 2px solid #ff0000; /* Garis merah neon */
+        position: fixed; /* Menempel di atas */
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 10px 15px;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #ff0000;
+    }
+
+    .brand-name {
+        color: #ff0000;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    /* Ini bagian navigasi yang tadi tidak muncul */
+    .nav-list {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+
+    .nav-list li a {
+        color: #ffffff; /* Warna putih agar terlihat di background hitam */
+        text-decoration: none;
+        font-size: 1.5rem; /* Ukuran icon besar */
+    }
+
+    .nav-list li a:hover {
+        color: #ff0000; /* Berubah merah saat disentuh */
+    }
+
+    /* Supaya konten bawah tidak tertutup header */
+    body { padding-top: 70px; }
