@@ -57,20 +57,20 @@ function scrollToTop() {
 // 3. MENU MOBILE
 // =================================================
 function toggleMenu() {
-    const navbar = document.getElementById('navbar');
-    const toggle = document.querySelector('.menu-toggle');
-    if (navbar && toggle) {
-        navbar.classList.toggle('active');
-        toggle.classList.toggle('active');
+    const menu = document.getElementById('daftar-menu');
+    const tombol = document.querySelector('.menu-toggle');
+    if (menu && tombol) {
+        menu.classList.toggle('active');
+        tombol.classList.toggle('active');
     }
 }
 
 function closeMenu() {
-    const navbar = document.getElementById('navbar');
+    const menu = document.getElementById('daftar-menu');
     const toggle = document.querySelector('.menu-toggle');
-    if (navbar && toggle) {
-        navbar.classList.remove('active');
-        toggle.classList.remove('active');
+    if (menu && tombol) {
+        menu.classList.remove('active');
+        tombol.classList.remove('active');
     }
 }
 
