@@ -2361,87 +2361,14 @@ header {
 .nav-list.active {
     display: flex;
 }
-/* Container Utama Header */
-.main-header {
-    width: 100%;
-    background-color: #000000; /* Hitam pekat */
-    border-bottom: 2px solid #ff0000; /* Garis merah neon */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999; /* Pastikan di atas segalanya */
-    padding: 10px 0;
-}
-
-/* Container Flexbox */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Logo di tengah */
-    position: relative;      /* Untuk patokan tombol kiri-kanan */
-    height: 50px;
-    width: 100%;
-}
-
-/* TOMBOL HAMBURGER (Kiri) */
-.menu-toggle {
-    position: absolute;
-    left: 15px;              /* Kunci di pojok kiri */
-    background: none;
-    border: none;
-    color: #ffffff !important; /* PAKSA WARNA PUTIH */
-    font-size: 24px;         /* Ukuran diperbesar */
-    cursor: pointer;
-    z-index: 10001;          /* Di atas container */
-    display: block !important;
-}
-
-/* LOGO & NAMA (Tengah) */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.logo img {
-    width: 35px;
-    height: 35px;
-    border: 1px solid #ff0000;
-}
-
-.brand-name {
-    color: #ff0000;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* TOMBOL ADMIN (Kanan) */
-.admin-toggle {
-    position: absolute;
-    right: 15px;             /* Kunci di pojok kanan */
-    background: none;
-    border: none;
-    color: #ffffff !important; /* PAKSA WARNA PUTIH */
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 10001;
-}
-
-/* NAVIGASI DROPDOWN (Muncul dari kiri) */
+/* Awalnya sembunyi */
 .nav-list {
-    display: none; 
-    list-style: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background: rgba(0, 0, 0, 0.95);
-    border: 1px solid #ff0000;
-    width: 200px;
-    padding: 15px;
-    flex-direction: column;
-    gap: 15px;
+    display: none;
+    /* ... gaya desain lainnya ... */
 }
 
+/* Muncul saat tombol diklik (karena JavaScript menambah class 'active') */
 .nav-list.active {
-    display: flex; /* Muncul saat diklik */
+    display: flex !important;
 }
+
