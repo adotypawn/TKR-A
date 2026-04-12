@@ -252,3 +252,19 @@ function toggleMenu() {
     const navList = document.getElementById('menu-list');
     navList.classList.toggle('active');
 }
+function toggleMenu() {
+    // Mencari elemen dengan id 'menu-list'
+    const nav = document.getElementById('menu-list');
+    
+    // Menambah atau menghapus class 'active' saat diklik
+    nav.classList.toggle('active');
+}
+
+// Tambahan: Agar menu otomatis tertutup setelah salah satu menu diklik
+function muncul(section) {
+    const nav = document.getElementById('menu-list');
+    nav.classList.remove('active');
+    
+    // Kode fungsi muncul() kamu yang asli bisa ditaruh di sini
+    console.log("Menuju ke: " + section);
+}
