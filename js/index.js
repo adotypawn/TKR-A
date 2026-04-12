@@ -248,23 +248,14 @@ document.addEventListener("visibilitychange", function() {
         // audio.play(); 
     }
 });
-function toggleMenu() {
-    const navList = document.getElementById('menu-list');
-    navList.classList.toggle('active');
-}
-function toggleMenu() {
-    // Mencari elemen dengan id 'menu-list'
-    const nav = document.getElementById('menu-list');
-    
-    // Menambah atau menghapus class 'active' saat diklik
-    nav.classList.toggle('active');
+// Fungsi untuk membuka dan menutup menu (Hamburger)
+function aksiMenu() {
+    const menu = document.getElementById("daftar-menu");
+    menu.classList.toggle("tampilkan");
 }
 
-// Tambahan: Agar menu otomatis tertutup setelah salah satu menu diklik
-function muncul(section) {
-    const nav = document.getElementById('menu-list');
-    nav.classList.remove('active');
-    
-    // Kode fungsi muncul() kamu yang asli bisa ditaruh di sini
-    console.log("Menuju ke: " + section);
+// Fungsi untuk menutup menu saat link diklik
+function tutupMenu() {
+    const menu = document.getElementById("daftar-menu");
+    menu.classList.remove("tampilkan");
 }
