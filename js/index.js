@@ -259,3 +259,30 @@ function tutupMenu() {
     const menu = document.getElementById("daftar-menu");
     menu.classList.remove("tampilkan");
 }
+// Fungsi Buka-Tutup Menu
+function toggleMenu() {
+    const menu = document.getElementById('daftar-menu');
+    const tombol = document.querySelector('.menu-toggle');
+
+    if (menu) {
+        menu.classList.toggle('active');
+        // Opsional: ganti icon hamburger jadi 'X' saat terbuka
+        const icon = tombol.querySelector('i');
+        if (menu.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    }
+}
+
+// Fungsi Tutup Menu saat Link diklik
+function closeMenu() {
+    const menu = document.getElementById('daftar-menu');
+    const tombol = document.querySelector('.menu-toggle i');
+    
+    if (menu) {
+        menu.classList.remove('active');
+        tombol.classList.replace('fa-times', 'fa-bars');
+    }
+}
