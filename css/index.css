@@ -2301,3 +2301,63 @@ header {
 
     /* Supaya konten bawah tidak tertutup header */
     body { padding-top: 70px; }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Logo & Nama ke tengah */
+    position: relative;      /* Patokan untuk tombol kiri & kanan */
+    height: 60px;
+    width: 100%;
+}
+
+/* Tombol Hamburger di Kiri */
+.menu-toggle {
+    position: absolute;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Logo Tetap di Tengah */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tombol Admin di Kanan */
+.admin-toggle {
+    position: absolute;
+    right: 15px; /* Kunci posisi di pojok kanan */
+    background: none;
+    border: none;
+    color: #ff0000; /* Warna merah agar mencolok sebagai admin */
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-toggle:hover {
+    text-shadow: 0 0 10px #ff0000;
+}
+
+/* Navigasi Dropdown dari Kiri */
+.nav-list {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid #ff0000;
+    flex-direction: column;
+    list-style: none;
+    padding: 10px;
+}
+
+.nav-list.active {
+    display: flex;
+}
