@@ -2469,17 +2469,3 @@ body {
 .nav-list li a:hover {
     color: #ff0000;
 }
-/* style.css */
-
-.menu-toggle i {
-    color: #ffffff !important; /* Paksa icon jadi putih */
-    display: block !important;
-    font-size: 30px !important; /* Ukuran besar agar terlihat */
-}
-
-.main-header {
-    display: block !important;
-    visibility: visible !important;
-    background: #000 !important;
-    height: 70px !important;
-}
