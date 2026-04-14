@@ -2549,7 +2549,7 @@ body {
 
 /* Tombol Kanan (Admin) */
 .admin-toggle {
-    position: absolute;
+    position: right;
     right: 15px;
     background: none;
     border: none;
