@@ -131,7 +131,7 @@ nav ul li a:hover {
 
 /* Hamburger Menu */
 .menu-toggle {
-    display: none;
+    display: flex;
     flex-direction: row-reverse;
     cursor: pointer;
     gap: 6px;
@@ -915,7 +915,7 @@ footer h2 {
 
 /* Container */
 .menu-toggle {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1999,7 +1999,7 @@ header {
 
 /* Sembunyikan tombol hamburger agar tidak double */
 .menu-toggle {
-    display: none !important;
+    display: flex !important;
 }
 /* --- HEADER UTAMA --- */
 header {
@@ -2073,7 +2073,7 @@ header {
 
     /* Hilangkan menu hamburger lama yang merusak tampilan */
     .menu-toggle {
-        display: none !important;
+        display: flex !important;
     }
 }
 
@@ -2140,7 +2140,7 @@ header {
 
 /* Hilangkan menu lama yang mengganggu */
 .menu-toggle, .menu-icon, .nav-brand ul {
-    display: none !important;
+    display: flex !important;
 }
 
 /* Aturan Khusus Mobile agar pas di HP */
