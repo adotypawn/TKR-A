@@ -1,8 +1,16 @@
-// =================================================
+function toggleMenu() {
+    const nav = document.getElementById('nav-container');
+    nav.classList.toggle('active');
+}
+
+function closeMenu() {
+    const nav = document.getElementById('nav-container');
+    nav.classList.remove('active');
+}
 // 1. NAVIGASI, LOADER & AUDIO
 // =================================================
 function muncul(idTujuan) {
-    const sections = ['home', 'foto', 'vidio', 'about'];
+    const sections = ['home', 'foto', 'vidio', 'about', 'komentar'];
     sections.forEach(id => {
         const elemen = document.getElementById(id);
         if (elemen) elemen.style.display = "none";
@@ -52,31 +60,6 @@ window.onscroll = function() {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// =================================================
-// 3. MENU MOBILE
-// =================================================
-function toggleMenu() {
-    const menu = document.getElementById('daftar-menu');
-    const tombol = document.querySelector('.menu-toggle');
-    if (menu && tombol) {
-        menu.classList.toggle('active');
-        tombol.classList.toggle('active');
-    }
-}
-
-function closeMenu() {
-    const menu = document.getElementById('daftar-menu');
-    const toggle = document.querySelector('.menu-toggle');
-    if (menu && tombol) {
-        menu.classList.remove('active');
-        tombol.classList.remove('active');
-    }
-}
-
-// =================================================
-// 4. COUNTDOWN GRADUASI
-// =================================================
 const graduationDate = new Date("July 1, 2026 08:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
@@ -174,115 +157,3 @@ window.hapusPesan = function(key) {
         console.error("Fungsi hapusData belum siap di index.html");
     }
 };
-/* =================================================
-   PISTON ENGINE CORE SYSTEM - TKR A VERSION
-================================================= */
-
-const EngineTKR = {
-    // Pengaturan Dasar
-    config: {
-        idleRPM: 1.0,  // Kecepatan lambat (detik)
-        fastRPM: 0.4,  // Kecepatan saat digas (detik)
-        isRunning: true
-    },
-
-    init() {
-        // Seleksi elemen penting
-        this.pistonMaster = document.querySelector('.piston-assembly');
-        this.conRod = document.querySelector('.con-rod-master');
-        this.crank = document.querySelector('.crank-web');
-        this.explosion = document.querySelector('.power-stroke');
-        this.container = document.querySelector('.engine-master');
-
-        if (!this.pistonMaster) return;
-
-        this.bindEvents();
-    },
-
-    // Fungsi untuk mengubah kecepatan animasi secara global
-    updateEngineSpeed(duration) {
-        const elements = [this.pistonMaster, this.conRod, this.crank, this.explosion];
-        
-        elements.forEach(el => {
-            if (el) {
-                el.style.animationDuration = `${duration}s`;
-            }
-        });
-    },
-
-    bindEvents() {
-        // Efek Gas Pol saat klik/sentuh mesin
-        const startGas = () => {
-            this.updateEngineSpeed(this.config.fastRPM);
-            this.container.style.boxShadow = "0 0 30px rgba(255, 0, 0, 0.4)";
-            this.container.style.transition = "0.2s";
-        };
-
-        const stopGas = () => {
-            this.updateEngineSpeed(this.config.idleRPM);
-            this.container.style.boxShadow = "none";
-        };
-
-        // Event Listeners (Mouse & Touch untuk HP)
-        this.container.addEventListener('mousedown', startGas);
-        this.container.addEventListener('mouseup', stopGas);
-        this.container.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            startGas();
-        });
-        this.container.addEventListener('touchend', stopGas);
-    }
-};
-
-// Jalankan sistem saat halaman selesai dimuat
-document.addEventListener('DOMContentLoaded', () => {
-    EngineTKR.init();
-});
-// Script untuk menghentikan lagu saat pindah tab atau keluar aplikasi
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-        // Jika pengguna pindah tab atau minimize, musik berhenti
-        Audio.pause();
-    } else {
-        // Jika kembali ke tab, musik bisa lanjut (opsional)
-        // audio.play(); 
-    }
-});
-// Fungsi untuk membuka dan menutup menu (Hamburger)
-function aksiMenu() {
-    const menu = document.getElementById("daftar-menu");
-    menu.classList.toggle("tampilkan");
-}
-
-// Fungsi untuk menutup menu saat link diklik
-function tutupMenu() {
-    const menu = document.getElementById("daftar-menu");
-    menu.classList.remove("tampilkan");
-}
-// Fungsi Buka-Tutup Menu
-function toggleMenu() {
-    const menu = document.getElementById('daftar-menu');
-    const tombol = document.querySelector('.menu-toggle');
-
-    if (menu) {
-        menu.classList.toggle('active');
-        // Opsional: ganti icon hamburger jadi 'X' saat terbuka
-        const icon = tombol.querySelector('i');
-        if (menu.classList.contains('active')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-        }
-    }
-}
-
-// Fungsi Tutup Menu saat Link diklik
-function closeMenu() {
-    const menu = document.getElementById('daftar-menu');
-    const tombol = document.querySelector('.menu-toggle i');
-    
-    if (menu) {
-        menu.classList.remove('active');
-        tombol.classList.replace('fa-times', 'fa-bars');
-    }
-}
