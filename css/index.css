@@ -319,74 +319,64 @@ h2 {
 .loader {
     position: fixed;
     top: 0;
-    left: 0; 
-    width: 100%; 
-    height: 100vh; /* Gunakan vh supaya fix satu layar penuh */
+    left: 0;
+    width: 100%;
+    height: 100vh;
     background: #000;
-    display: flex; 
-    flex-direction: column; /* PENTING: Supaya elemen menyusun ke bawah */
-    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     z-index: 9999;
-    gap: 15px; /* Memberi jarak otomatis antar spinner dan teks */
+    gap: 20px;
 }
 
-/* Tambahan agar teks terlihat lebih 'glow' sesuai tema kamu */
-.loader span, .loader h1 {
-    color: #ff0000; /* Warna merah sesuai gambar */
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-    font-family: sans-serif;
-    margin: 0;
+/* Wadah Bar Lurus */
+.progress-container {
+    width: 250px; /* Lebar bar */
+    height: 8px;   /* Tebal bar */
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-
-.loader.hide {
-    opacity: 0;
-    pointer-events: none;
+/* Animasi Bar Berjalan */
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #ff0000; /* Warna merah */
+    box-shadow: 0 0 15px #ff0000; /* Efek Glow */
+    animation: loading-lurus 2s infinite ease-in-out;
+    transform-origin: left;
 }
 
-.loader-content {
+/* Keyframes untuk gerak dari kiri ke kanan */
+@keyframes loading-lurus {
+    0% { transform: scaleX(0); }
+    50% { transform: scaleX(1); }
+    100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Gaya Teks */
+.loader-text {
     text-align: center;
 }
 
-.loader-content h2 {
+.loader-text h1 {
     color: #ff0000;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 900;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    border: none;
-    font-family: Sans-Serif;
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px #ff0000;
 }
 
-.loader-content p {
-    color: #ff0000;
-    font-size: 1rem;
-    animation: blink 1s infinite;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-    font-family: sans-serif;
+.loader-text span {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 12px;
+    opacity: 0.8;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
-
-.spinner {
-    width: 50px; height: 50px;
-    border: 5px solid #333;
-    border-top: 5px solid #ff0000;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
 
 #backToTop {
     position: fixed;
@@ -395,6 +385,7 @@ h2 {
     border: none; width: 40px; height: 40px;
     cursor: pointer; display: none;
 }
+
 footer {
     display: flex;
     justify-content: space-between;
