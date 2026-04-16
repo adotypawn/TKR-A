@@ -292,13 +292,20 @@
 
     <!-- ⏳ Loader JS -->
     <script>
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
-            loader.classList.add('hide');
-            setTimeout(function() {
-                loader.style.display = 'none';
-            }, 500);
-        });
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    
+    // Memberi jeda 1 detik agar animasi loading terlihat dulu oleh user
+    setTimeout(function() {
+        loader.classList.add('hide'); // Efek memudar
+        
+        // Setelah memudar (0.5 detik), baru hilangkan display-nya
+        setTimeout(function() {
+            loader.style.display = 'none';
+        }, 500); 
+    }, 1000); 
+});
+
     </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
