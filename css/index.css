@@ -315,16 +315,28 @@ h2 {
 
 /* =================================================
    7. LOADER & UI LAINNYA
-   ================================================= */.loader {
+   ================================================= */
+.loader {
     position: fixed;
     top: 0;
     left: 0; 
     width: 100%; 
-    height: 100%;
+    height: 100vh; /* Gunakan vh supaya fix satu layar penuh */
     background: #000;
-    display: grid;
-    place-items: center; /* Otomatis tengah horizontal & vertikal */
+    display: flex; 
+    flex-direction: column; /* PENTING: Supaya elemen menyusun ke bawah */
+    justify-content: center; 
+    align-items: center;
     z-index: 9999;
+    gap: 15px; /* Memberi jarak otomatis antar spinner dan teks */
+}
+
+/* Tambahan agar teks terlihat lebih 'glow' sesuai tema kamu */
+.loader span, .loader h1 {
+    color: #ff0000; /* Warna merah sesuai gambar */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    font-family: sans-serif;
+    margin: 0;
 }
 
 
