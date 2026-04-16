@@ -83,7 +83,6 @@ body {
 .admin-toggle {
     color: #ff0000; /* Warna merah agar mencolok sebagai admin */
     cursor: pointer;
-    border: 2px;
 }
 
 .menu-toggle {
