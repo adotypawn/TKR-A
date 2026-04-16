@@ -293,18 +293,20 @@
     <!-- ⏳ Loader JS -->
     <script>
 window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
+    // Menggunakan titik (.) untuk memanggil class
+    const loader = document.querySelector('.loader');
     
-    // Memberi jeda 1 detik agar animasi loading terlihat dulu oleh user
-    setTimeout(function() {
-        loader.classList.add('hide'); // Efek memudar
-        
-        // Setelah memudar (0.5 detik), baru hilangkan display-nya
+    if (loader) {
         setTimeout(function() {
-            loader.style.display = 'none';
-        }, 500); 
-    }, 1000); 
+            loader.classList.add('hide'); // Menambah class 'hide'
+            
+            setTimeout(function() {
+                loader.style.display = 'none'; // Menghilangkan total
+            }, 500); 
+        }, 1000); 
+    }
 });
+
 
     </script>
 <script type="module">
