@@ -44,6 +44,7 @@ body {
 
 .logo img {
     height: 40px;
+    border-radius:15rem;
 }
 
 .brand-name {
