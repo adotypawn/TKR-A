@@ -315,19 +315,16 @@ h2 {
 
 /* =================================================
    7. LOADER & UI LAINNYA
-   ================================================= */
-.loader {
+   ================================================= */.loader {
     position: fixed;
     top: 0;
     left: 0; 
-    width: 100vw; /* Menggunakan viewport width */
-    height: 100vh; /* Menggunakan viewport height */
+    width: 100%; 
+    height: 100%;
     background: #000;
-    display: flex; 
-    justify-content: center; /* Tengah horizontal */
-    align-items: center;     /* Tengah vertikal */
+    display: grid;
+    place-items: center; /* Otomatis tengah horizontal & vertikal */
     z-index: 9999;
-    flex-direction: column;
 }
 
 
