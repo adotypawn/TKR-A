@@ -399,7 +399,7 @@ footer h2 {
 
 /* --- Baris Tombol (Admin, JSON, dll) --- */
 .guestbook-tools {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 4px;
     margin-bottom: 15px;
