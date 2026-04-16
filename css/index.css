@@ -324,6 +324,39 @@ h2 {
     z-index: 9999;
 }
 
+.loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content h2 {
+    color: #ff0000;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    border: none;
+}
+
+.loader-content p {
+    color: #ff0000;
+    font-size: 1rem;
+    animation: blink 1s infinite;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
 .spinner {
     width: 50px; height: 50px;
     border: 5px solid #333;
