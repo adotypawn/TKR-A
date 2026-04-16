@@ -84,8 +84,10 @@ body {
     color: #ff0000; /* Warna merah agar mencolok sebagai admin */
     cursor: pointer;
     background-color: transparent !important;
-    border: none; /* Untuk menghilangkan garis pinggirnya */
-    box-shadow: none; /* Jika ada efek bayangan yang membuatnya tampak putih */
+    border: none; 
+    box-shadow: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
 }
 
 .menu-toggle {
