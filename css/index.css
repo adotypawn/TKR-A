@@ -458,8 +458,8 @@ footer h2 {
 }
 
 #submitBtn {
-  background-color: #ffffff; 
-  color: #000000;          
+  background-color: #ff0000; 
+  color: #ffffff;          
   border: none;
   padding: 8px 16px;
   border-radius: 4px;   
@@ -475,7 +475,7 @@ footer h2 {
 }
 
 #submitBtn:hover {
-  background-color: #e0e0e0; /* Berubah sedikit abu-abu */
+  background-color: #9e0000; /* Berubah sedikit abu-abu */
   transform: translateY(-2px); /* Tombol sedikit terangkat */
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
