@@ -418,16 +418,22 @@ footer h2 {
     display: flex;
     align-items: center;
     gap: 4px;
+    display: none;
 }
 
 .btn-tool:hover {
+    display: none;
     background-color: #e0e0e0;
 }
 .btn-tool {
+    display: none;
     padding:10px 15px; background:#ff0000; border:2px solid #fff; color:#000;
     font-weight:bold; cursor:pointer; border-radius:6px; font-size:0.9rem;
 }
-.btn-tool:hover { background:#fff; color:#ff0000; 
+.btn-tool:hover {
+    display: none;
+    background:#fff; 
+    color:#ff0000; 
 }
 
 .search-box { margin-bottom:10px; }
