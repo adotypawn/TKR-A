@@ -377,6 +377,11 @@ h2 {
     opacity: 0.8;
 }
 
+.loader.hide {
+opacity: 0;
+visibility: hidden;
+}
+
 
 #backToTop {
     position: fixed;
