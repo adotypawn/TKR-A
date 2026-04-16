@@ -327,6 +327,7 @@ h2 {
     justify-content: center; /* Tengah horizontal */
     align-items: center;     /* Tengah vertikal */
     z-index: 9999;
+    flex-direction: column;
 }
 
 
