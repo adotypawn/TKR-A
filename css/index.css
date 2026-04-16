@@ -317,6 +317,7 @@ h2 {
    7. LOADER & UI LAINNYA
    ================================================= */
 .loader {
+    position: fixed;
     top: 0;
     left: 0; 
     width: 100%; 
