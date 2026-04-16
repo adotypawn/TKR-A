@@ -88,8 +88,6 @@ body {
     box-shadow: none; /* Jika ada efek bayangan yang membuatnya tampak putih */
 }
 
-}
-
 .menu-toggle {
     display: none;
     background: none;
