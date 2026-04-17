@@ -157,3 +157,9 @@ window.hapusPesan = function(key) {
         console.error("Fungsi hapusData belum siap di index.html");
     }
 };
+
+var audio = document.getElementById("myAudio");
+
+if (audio.volume < 1.0) {
+    audio.volume += 0.1;
+}
