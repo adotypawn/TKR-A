@@ -28,10 +28,37 @@ window.onload = function() {
     }
 };
 
+const audio = document.getElementById("myAudio");
+
+// 1. Fungsi untuk Memulai Musik & Notifikasi
 window.addEventListener('click', () => {
-    const audio = document.getElementById("myAudio");
-    if (audio && audio.paused) audio.play();
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+    }
+
+    if (audio && audio.paused) {
+        audio.play().then(() => {
+            new Notification("Musik Dimulai", {
+                body: "Klik untuk kembali ke aplikasi",
+                icon: "https://via.placeholder.com/100" // Ganti dengan link gambar iconmu
+            });
+        }).catch(err => console.log("Autoplay diblokir:", err));
+    }
 }, { once: true });
+
+// 2. Logika Pause saat Keluar Aplikasi (Pindah Tab/Minimize)
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        // Jika tab tidak terlihat, pause lagunya
+        audio.pause();
+        console.log("Aplikasi ditinggalkan: Musik di-pause");
+    } else {
+        // Jika kembali ke tab, lanjut putar lagi
+        audio.play().catch(err => console.log("Gagal lanjut putar:", err));
+        console.log("Kembali ke aplikasi: Musik dilanjutkan");
+    }
+});
+
 
 // =================================================
 // 2. MODAL & UI SCROLL
@@ -158,26 +185,3 @@ window.hapusPesan = function(key) {
     }
 };
 
-const audio = document.getElementById('myAudio'); // Mengambil id audio kamu
-
-function putarMusik() {
-    audio.play().then(() => {
-        // Notifikasi muncul hanya jika musik BERHASIL diputar
-        Swal.fire({
-            title: 'Kisah Klasik Dimulai... 🎶',
-            text: 'Menikmati kenangan indah bersamamu.',
-            background: '#000',      // Latar hitam agar senada dengan web
-            color: '#ea80b0',        // Teks warna pink neon
-            showConfirmButton: false,
-            timer: 4000,             // Muncul selama 4 detik
-            timerProgressBar: true,  // Ada garis loading di bawahnya
-            toast: true,             // Bentuk notif kecil (seperti pop-up HP)
-            position: 'bottom-start', // Muncul di pojok kiri bawah
-            didOpen: () => {
-                // Opsional: Kamu bisa menambah efek getar atau lainnya di sini
-            }
-        });
-    }).catch(error => {
-        console.log("Musik tertahan oleh sistem browser:", error);
-    });
-}
