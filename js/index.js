@@ -158,8 +158,26 @@ window.hapusPesan = function(key) {
     }
 };
 
-var audio = document.getElementById("myAudio");
+const audio = document.getElementById('myAudio'); // Mengambil id audio kamu
 
-if (audio.volume < 1.0) {
-    audio.volume += 0.1;
+function putarMusik() {
+    audio.play().then(() => {
+        // Notifikasi muncul hanya jika musik BERHASIL diputar
+        Swal.fire({
+            title: 'Kisah Klasik Dimulai... 🎶',
+            text: 'Menikmati kenangan indah bersamamu.',
+            background: '#000',      // Latar hitam agar senada dengan web
+            color: '#ea80b0',        // Teks warna pink neon
+            showConfirmButton: false,
+            timer: 4000,             // Muncul selama 4 detik
+            timerProgressBar: true,  // Ada garis loading di bawahnya
+            toast: true,             // Bentuk notif kecil (seperti pop-up HP)
+            position: 'bottom-start', // Muncul di pojok kiri bawah
+            didOpen: () => {
+                // Opsional: Kamu bisa menambah efek getar atau lainnya di sini
+            }
+        });
+    }).catch(error => {
+        console.log("Musik tertahan oleh sistem browser:", error);
+    });
 }
