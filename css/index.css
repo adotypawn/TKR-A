@@ -844,3 +844,23 @@ footer h2 {
 .time-box p {
     font-size: 0.65rem !important;
 }
+
+#custom-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: sans-serif;
+    display: none; /* Sembunyi dulu */
+    z-index: 9999;
+    animation: fadeInUp 0.5s;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; bottom: 0; }
+    to { opacity: 1; bottom: 20px; }
+}
