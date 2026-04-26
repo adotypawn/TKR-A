@@ -53,10 +53,18 @@ function setupMediaSession() {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: 'Sebuah Kisah Klasik',
             artist: 'Sheila On 7',
-            artwork: [{ src: 'https://via.placeholder.com/512', sizes: '512x512' }]
+            artwork: [
+                { 
+                    // Tetap begini karena sampul.jpg sejajar dengan index.html
+                    src: 'Logo.jpg', 
+                    sizes: '512x512', 
+                    type: 'image/jpeg' 
+                }
+            ]
         });
     }
 }
+
 
 // Fitur Pause saat keluar aplikasi
 document.addEventListener("visibilitychange", () => {
