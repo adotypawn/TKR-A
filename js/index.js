@@ -51,8 +51,8 @@ function showToast() {
 function setupMediaSession() {
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: 'Judul Lagu Kamu',
-            artist: 'Nama Penyanyi',
+            title: 'Sebuah Kisah Klasik',
+            artist: 'Sheila On 7',
             artwork: [{ src: 'https://via.placeholder.com/512', sizes: '512x512' }]
         });
     }
