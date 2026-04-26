@@ -27,37 +27,47 @@ window.onload = function() {
         setTimeout(() => { loader.style.display = 'none'; }, 500);
     }
 };
-
 const audio = document.getElementById("myAudio");
+const toast = document.getElementById("custom-toast");
 
-// 1. Fungsi untuk Memulai Musik & Notifikasi
 window.addEventListener('click', () => {
-    if (Notification.permission !== "granted") {
-        Notification.requestPermission();
-    }
-
     if (audio && audio.paused) {
         audio.play().then(() => {
-            new Notification("Musik Dimulai", {
-                body: "Klik untuk kembali ke aplikasi",
-                icon: "https://via.placeholder.com/100" // Ganti dengan link gambar iconmu
-            });
-        }).catch(err => console.log("Autoplay diblokir:", err));
+            // 1. Munculkan Notif di Website (Toast)
+            showToast();
+            // 2. Munculkan Notif di Sistem (Media Session)
+            setupMediaSession();
+        });
     }
 }, { once: true });
 
-// 2. Logika Pause saat Keluar Aplikasi (Pindah Tab/Minimize)
+function showToast() {
+    toast.style.display = "block";
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3000); // Hilang setelah 3 detik
+}
+
+function setupMediaSession() {
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'Judul Lagu Kamu',
+            artist: 'Nama Penyanyi',
+            artwork: [{ src: 'https://via.placeholder.com/512', sizes: '512x512' }]
+        });
+    }
+}
+
+// Fitur Pause saat keluar aplikasi
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
-        // Jika tab tidak terlihat, pause lagunya
         audio.pause();
-        console.log("Aplikasi ditinggalkan: Musik di-pause");
     } else {
-        // Jika kembali ke tab, lanjut putar lagi
-        audio.play().catch(err => console.log("Gagal lanjut putar:", err));
-        console.log("Kembali ke aplikasi: Musik dilanjutkan");
+        audio.play().catch(() => {}); // Lanjut putar saat balik
     }
 });
+
+
 
 
 // =================================================
