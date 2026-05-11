@@ -296,15 +296,14 @@
     <!-- ⏳ Loader JS -->
     <script>
 window.addEventListener('load', function() {
-    // Menggunakan titik (.) untuk memanggil class
     const loader = document.querySelector('.loader');
     
     if (loader) {
         setTimeout(function() {
-            loader.classList.add('hide'); // Menambah class 'hide'
+            loader.classList.add('hide'); 
             
             setTimeout(function() {
-                loader.style.display = 'none'; // Menghilangkan total
+                loader.style.display = 'none'; 
             }, 500); 
         }, 1000); 
     }
@@ -347,7 +346,7 @@ window.addEventListener('load', function() {
       pesan: message,
       waktu: new Date().toLocaleString('id-ID')
     }).then(() => {
-      form.reset(); // Sudah diperbaiki dari Form ke form
+      form.reset(); 
       alert("Komentar terkirim!");
     });
   });
@@ -357,7 +356,6 @@ window.addEventListener('load', function() {
     displayArea.innerHTML = "";
     const data = snapshot.val();
     
-    // Cek status admin dari index.js
     const isAdmin = window.adminMode; 
 
     if (data) {
