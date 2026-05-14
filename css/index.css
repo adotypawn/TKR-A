@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #0a0a0a;
+    background-image: url('Logo.jpg');
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -18,7 +18,7 @@ body {
    2. HEADER & NAVIGASI
    ================================================= */
 .main-header {
-    background-color: #000;
+    background-color: transparent;
     color: white;
     padding: 15px 20px;
     position: sticky;
@@ -417,7 +417,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    background: #000000;
+    background: transparent;
     border-top: 4px solid #ff0000;
     flex-wrap: wrap;
     gap: 10px;
