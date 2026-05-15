@@ -12,9 +12,8 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
-        <link rel="preconnect" href="https://www.gstatic.com">
-        <link rel="dns-prefetch" href="https://www.gstatic.com">
-
+        <link rel="preconnect" href="https://www.gstatic.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
 
         <title>TKR A 2K24/2K26</title>
 
@@ -527,20 +526,23 @@
         <script src="js/index.js"></script>
 
         <!-- ⏳ Loader JS -->
-        <script>
-            window.addEventListener("load", function () {
-                const loader = document.querySelector(".loader");
+<script>
+    // Gunakan DOMContentLoaded agar loading cepat hilang
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.querySelector(".loader");
 
-                if (loader) {
-                    setTimeout(function () {
-                        loader.classList.add("hide");
+        if (loader) {
+            // Beri jeda 500ms saja agar tetap terlihat estetik
+            setTimeout(function () {
+                loader.classList.add("hide");
 
-                        setTimeout(function () {
-                            loader.style.display = "none";
-                        }, 500);
-                    }, 1000);
-                }
-            });
+                setTimeout(function () {
+                    loader.style.display = "none";
+                }, 500);
+            }, 500); 
+        }
+    });
+
         </script>
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
