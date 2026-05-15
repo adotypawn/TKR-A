@@ -105,7 +105,7 @@ window.onscroll = function() {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-const graduationDate = new Date("July 1, 2026 08:00:00").getTime();
+const graduationDate = new Date("Mei 24, 2027 08:00:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
     const distance = graduationDate - now;
