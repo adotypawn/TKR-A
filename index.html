@@ -23,6 +23,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+        <script type="module" src="guestbook.js"></script>
+
 
         <script src="firebase-init.js"></script>
         <script src="komentar.js"></script>
@@ -545,7 +547,7 @@
             });
         </script>
 
-        // --- 2. Fungsi Tampil Komentar & Tombol Hapus ---
+        // --- 2. Fungsi Tampil Komentar  Tombol Hapus ---
         <script>
             onValue(ref(db, "komentar"), snapshot => {
                 displayArea.innerHTML = "";
