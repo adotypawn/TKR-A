@@ -56,9 +56,9 @@ function setupMediaSession() {
             artwork: [
                 { 
                     // Tetap begini karena sampul.jpg sejajar dengan index.html
-                    src: 'Logo.jpg', 
+                    src: 'Logo.webp', 
                     sizes: '512x512', 
-                    type: 'image/jpeg' 
+                    type: 'image/webp' 
                 }
             ]
         });
