@@ -55,7 +55,7 @@ function setupMediaSession() {
             artist: 'Sheila On 7',
             artwork: [
                 { 
-                    src: 'Logo.webp', 
+                    src: 'assets/img/Logo.webp', 
                     sizes: '512x512', 
                     type: 'image/webp' // 
                 }
