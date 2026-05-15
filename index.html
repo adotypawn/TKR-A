@@ -1,400 +1,595 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/index.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
 
-    <title>TKR A 2K24/2K26</title>
+        <title>TKR A 2K24/2K26</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+        <script>
+            emailjs.init("user_HokrM1TTNolfVDT9G");
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-<script>
-    emailjs.init("user_HokrM1TTNolfVDT9G");
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-</script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
-    <script src="firebase-init.js"></script>
-    <script src="komentar.js"></script>
-
-</head>
-<body>
-
-    <!-- ⏳ Loader -->
-<div class="loader">
-    <div class="progress-container">
-        <div class="progress-bar"></div>
-          </div>
-          <div class="loader-text">
-        <h1>TKR A</h1>
-        <span>Loading...</span>
-    </div>
-</div>
-
-
-
-    <!-- 🎵 Audio -->
-    <audio id="myAudio" loop>
-        <source src="Sheila On 7 - Sebuah Kisah Klasik Official Music Video.mp3" type="audio/mpeg">
-    </audio>
-<div id="custom-toast">🎵 Musik sedang diputar...
-</div>
-
-
-    <!-- 🏠 Header --> 
- <header class="main-header">
-    <div class="header-content">
-        <button class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="logo">
-            <img src="Logo.webp" alt="Logo">
-            <span class="brand-name">TKR A</span>
+        <script src="firebase-init.js"></script>
+        <script src="komentar.js"></script>
+    </head>
+    <body>
+        <!-- ⏳ Loader -->
+        <div class="loader">
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loader-text">
+                <h1>TKR A</h1>
+                <span>Loading...</span>
+            </div>
         </div>
 
-<nav id="nav-container">
-    <ul class="nav-list" id="daftar-menu">
-        <li><a href="#home" onclick="closeMenu(); muncul('home')"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#foto" onclick="closeMenu(); muncul('foto')"><i class="fas fa-camera"></i> Foto</a></li>
-        <li><a href="#vidio" onclick="closeMenu(); muncul('vidio')"><i class="fas fa-video"></i> Video</a></li>
-        <li><a href="#about" onclick="closeMenu(); muncul('about')"><i class="fas fa-users"></i> About</a></li>
-        <li><a href="#komentar" onclick="closeMenu(); muncul('komentar')"><i class="fas fa-comments"></i> Komentar</a></li>
-    </ul>
-</nav>
+        <!-- 🎵 Audio -->
+        <audio id="myAudio" loop>
+            <source
+                src="Sheila On 7 - Sebuah Kisah Klasik Official Music Video.mp3"
+                type="audio/mpeg"
+            />
+        </audio>
+        <div id="custom-toast">🎵 Musik sedang diputar...</div>
 
+        <!-- 🏠 Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-        <button class="admin-toggle" onclick="toggleAdmin()">
-            <i class="fas fa-user-shield"></i>
-        </button>
-    </div>
-</header>
+                <div class="logo">
+                    <img src="Logo.webp" alt="Logo" />
+                    <span class="brand-name">TKR A</span>
+                </div>
 
+                <nav id="nav-container">
+                    <ul class="nav-list" id="daftar-menu">
+                        <li>
+                            <a
+                                href="#home"
+                                onclick="
+                                    closeMenu();
+                                    muncul('home');
+                                "
+                                ><i class="fas fa-home"></i> Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#foto"
+                                onclick="
+                                    closeMenu();
+                                    muncul('foto');
+                                "
+                                ><i class="fas fa-camera"></i> Foto</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#vidio"
+                                onclick="
+                                    closeMenu();
+                                    muncul('vidio');
+                                "
+                                ><i class="fas fa-video"></i> Video</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#about"
+                                onclick="
+                                    closeMenu();
+                                    muncul('about');
+                                "
+                                ><i class="fas fa-users"></i> About</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#komentar"
+                                onclick="
+                                    closeMenu();
+                                    muncul('komentar');
+                                "
+                                ><i class="fas fa-comments"></i> Komentar</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero active">
-        <div class="hero-content">
-            <div class="hero-badge">SELAMAT DATANG</div>
-            <h1>WEBSITE <span class="highlight">TKR A</span></h1>
-            <p class="hero-subtitle">Kelas Teknik Kendaraan Ringan</p>
-            <p class="hero-year">2024 / 2026</p>
-            <div class="hero-description"><p>Website ini adalah kumpulan momen indah dari kelas TKR A.</p>
-   </div>
-   </div>
-    </section>
+                <button class="admin-toggle" onclick="toggleAdmin()">
+                    <i class="fas fa-user-shield"></i>
+                </button>
+            </div>
+        </header>
 
-    <!-- ========== BUKU TAMU ========== -->
-    <section id="komentar" class="hero">
-    <div class="guestbook">
-        <h3><i class="fas fa-comments"></i> Kritik / Saran</h3>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero active">
+            <div class="hero-content">
+                <div class="hero-badge">SELAMAT DATANG</div>
+                <h1>WEBSITE <span class="highlight">TKR A</span></h1>
+                <p class="hero-subtitle">Kelas Teknik Kendaraan Ringan</p>
+                <p class="hero-year">2024 / 2026</p>
+                <div class="hero-description">
+                    <p>
+                        Website ini adalah kumpulan momen indah dari kelas TKR
+                        A.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <!-- FITUR TAMBAHAN -->
-        <div class="guestbook-tools">
-            <button onclick="toggleAdmin()" class="btn-tool"><i class="fas fa-user-shield"></i> Admin</button>
-            <button onclick="exportJSON()" class="btn-tool"><i class="fas fa-download"></i> JSON</button>
-            <button onclick="exportTXT()" class="btn-tool"><i class="fas fa-file-alt"></i> TXT</button>
-            <button onclick="exportCSV()" class="btn-tool"><i class="fas fa-file-csv"></i> CSV</button>
-        </div>
+        <!-- ========== BUKU TAMU ========== -->
+        <section id="komentar" class="hero">
+            <div class="guestbook">
+                <h3><i class="fas fa-comments"></i> Kritik / Saran</h3>
 
-        <div class="search-box"><input type="search" id="searchInput" placeholder="Cari pesan..."></div>
+                <!-- FITUR TAMBAHAN -->
+                <div class="guestbook-tools">
+                    <button onclick="toggleAdmin()" class="btn-tool">
+                        <i class="fas fa-user-shield"></i> Admin
+                    </button>
+                    <button onclick="exportJSON()" class="btn-tool">
+                        <i class="fas fa-download"></i> JSON
+                    </button>
+                    <button onclick="exportTXT()" class="btn-tool">
+                        <i class="fas fa-file-alt"></i> TXT
+                    </button>
+                    <button onclick="exportCSV()" class="btn-tool">
+                        <i class="fas fa-file-csv"></i> CSV
+                    </button>
+                </div>
 
-        <form id="guestbookForm">
-            <input type="text" id="guestName" placeholder="Nama Kamu" required>
-            <textarea id="guestMessage" placeholder="Tulis pesan..." required></textarea>
-            <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
-        </form>
+                <div class="search-box">
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Cari pesan..."
+                    />
+                </div>
 
-        <div id="guestbookStatus"></div>
-        <div id="guestbookEntries"></div>
-    </div>
-</section>
+                <form id="guestbookForm">
+                    <input
+                        type="text"
+                        id="guestName"
+                        placeholder="Nama Kamu"
+                        required
+                    />
+                    <textarea
+                        id="guestMessage"
+                        placeholder="Tulis pesan..."
+                        required
+                    ></textarea>
+                    <button type="submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
 
-<!-- ============================
+                <div id="guestbookStatus"></div>
+                <div id="guestbookEntries"></div>
+            </div>
+        </section>
+
+        <!-- ============================
      SECTION VIDEO (12 Video)
 ============================ -->
-<section id="vidio" class="video-section">
-    <h2><i class="fas fa-video"></i> Video</h2>
-    <div class="video-container">
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="1.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="2.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="3.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="4.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="5.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="6.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="7.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="8.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="9.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="10.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="11.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <div class="video">
-            <video autoplay muted loop playsinline>
-                <source src="12.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-    </div>
-</section>
+        <section id="vidio" class="video-section">
+            <h2><i class="fas fa-video"></i> Video</h2>
+            <div class="video-container">
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="1.mp4" type="video/mp4" />
+                    </video>
+                </div>
 
-<!-- ============================
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="2.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="3.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="4.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="5.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="6.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="7.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="8.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="9.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="10.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="11.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="video">
+                    <video autoplay muted loop playsinline>
+                        <source src="12.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
      SECTION FOTO (24 Foto)
 ============================ -->
-<section id="foto" class="photo-section">
-    <h2><i class="fas fa-camera"></i> Galeri Foto</h2>
-    <div class="foto-list">
-        
-        <!-- Baris 1 -->
-        <div class="foto-item"><img src="1.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="2.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="3.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="4.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        
-        <!-- Baris 2 -->
-        <div class="foto-item"><img src="5.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="6.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="7.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="8.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        
-        <!-- Baris 3 -->
-        <div class="foto-item"><img src="9.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="10.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="11.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="12.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        
-        <!-- Baris 4 -->
-        <div class="foto-item"><img src="13.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="14.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="15.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="16.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        
-        <!-- Baris 5 -->
-        <div class="foto-item"><img src="17.jpeg" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="18.jpeg" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="19.jpeg" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="20.jpeg" class="foto-card" onclick="openModal(this.src)"></div>
-        
-        <!-- Baris 6 -->
-        <div class="foto-item"><img src="21.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="22.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="23.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        <div class="foto-item"><img src="24.webp" class="foto-card" onclick="openModal(this.src)"></div>
-        
-    </div>
-</section>
+        <section id="foto" class="photo-section">
+            <h2><i class="fas fa-camera"></i> Galeri Foto</h2>
+            <div class="foto-list">
+                <!-- Baris 1 -->
+                <div class="foto-item">
+                    <img
+                        src="1.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="2.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="3.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="4.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
 
-    <!-- ℹ️ Section ABOUT -->
-    <section id="about" class="about-section">
-        <h2><i class="fas fa-users"></i> Tentang Kami</h2>
-        
-        <div class="about-cards">
-            <div class="card">
-                <i class="fas fa-school"></i>
-                <h3>Jurusan</h3>
-                <p>Teknik Kendaraan Ringan</p>
+                <!-- Baris 2 -->
+                <div class="foto-item">
+                    <img
+                        src="5.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="6.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="7.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="8.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+
+                <!-- Baris 3 -->
+                <div class="foto-item">
+                    <img
+                        src="9.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="10.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="11.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="12.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+
+                <!-- Baris 4 -->
+                <div class="foto-item">
+                    <img
+                        src="13.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="14.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="15.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="16.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+
+                <!-- Baris 5 -->
+                <div class="foto-item">
+                    <img
+                        src="17.jpeg"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="18.jpeg"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="19.jpeg"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="20.jpeg"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+
+                <!-- Baris 6 -->
+                <div class="foto-item">
+                    <img
+                        src="21.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="22.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="23.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
+                <div class="foto-item">
+                    <img
+                        src="24.webp"
+                        class="foto-card"
+                        onclick="openModal(this.src)"
+                    />
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-building"></i>
-                <h3>Sekolah</h3>
-                <p>SMK Muhammadiyah 2 Cileungsi</p>
+        </section>
+
+        <!-- ℹ️ Section ABOUT -->
+        <section id="about" class="about-section">
+            <h2><i class="fas fa-users"></i> Tentang Kami</h2>
+
+            <div class="about-cards">
+                <div class="card">
+                    <i class="fas fa-school"></i>
+                    <h3>Jurusan</h3>
+                    <p>Teknik Kendaraan Ringan</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-building"></i>
+                    <h3>Sekolah</h3>
+                    <p>SMK Muhammadiyah 2 Cileungsi</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Tahun Ajaran</h3>
+                    <p>2024/2026</p>
+                </div>
             </div>
-            <div class="card">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Tahun Ajaran</h3>
-                <p>2024/2026</p>
+
+            <!-- ⏰ Countdown -->
+            <div class="countdown">
+                <h3><i class="fas fa-clock"></i> Hitung Mundur Kelulusan</h3>
+                <div id="countdownTimer">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <p>Hari</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <p>Jam</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <p>Menit</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <p>Detik</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- 📸 Modal Foto -->
+        <div id="fotoModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="imgZoom" />
         </div>
 
-        <!-- ⏰ Countdown -->
-        <div class="countdown">
-            <h3><i class="fas fa-clock"></i> Hitung Mundur Kelulusan</h3>
-            <div id="countdownTimer">
-                <div class="time-box"><span id="days">00</span><p>Hari</p></div>
-                <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
-                <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
-                <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+        <!-- ⬆️ Back to Top -->
+        <button id="backToTop" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- 📌 Footer -->
+        <footer>
+            <h2>Website Ini Dibuat Oleh Siswa TKR A 24/26</h2>
+            <div class="social-media">
+                <a
+                    href="https://www.instagram.com/sebelassstekaer.a?igsh=MWR3bXZvNmNqdWphaA=="
+                    target="_blank"
+                    width="30"
+                    ><i class="fab fa-instagram"></i>
+                </a>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- 📸 Modal Foto -->
-    <div id="fotoModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="imgZoom">
-    </div>
+        <script src="js/index.js"></script>
 
-    <!-- ⬆️ Back to Top -->
-    <button id="backToTop" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <!-- ⏳ Loader JS -->
+        <script>
+            window.addEventListener("load", function () {
+                const loader = document.querySelector(".loader");
 
-    <!-- 📌 Footer -->
-    <footer>
-        <h2>Website Ini Dibuat Oleh Siswa TKR A 24/26</h2>
-        <div class="social-media">
-            <a href="https://www.instagram.com/sebelassstekaer.a?igsh=MWR3bXZvNmNqdWphaA==" target="_blank" width="30"><i class="fab fa-instagram"></i>
-            </a>
-        </div>
-    </footer>
+                if (loader) {
+                    setTimeout(function () {
+                        loader.classList.add("hide");
 
-    <script src="js/index.js"></script>
+                        setTimeout(function () {
+                            loader.style.display = "none";
+                        }, 500);
+                    }, 1000);
+                }
+            });
+        </script>
 
-    <!-- ⏳ Loader JS -->
-    <script>
-window.addEventListener('load', function() {
-    const loader = document.querySelector('.loader');
-    
-    if (loader) {
-        setTimeout(function() {
-            loader.classList.add('hide'); 
-            
-            setTimeout(function() {
-                loader.style.display = 'none'; 
-            }, 500); 
-        }, 1000); 
-    }
-});
+            // --- 2. Fungsi Tampil Komentar & Tombol Hapus ---
+<script>
+            onValue(ref(db, "komentar"), snapshot => {
+                displayArea.innerHTML = "";
+                const data = snapshot.val();
 
+                const isAdmin = window.adminMode;
 
-    </script>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getDatabase, ref, push, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBWH9-t8pHpJpGethE4VR40BPdadtxCBiQ",
-    authDomain: "tkra-3be6f.firebaseapp.com",
-    databaseURL: "https://tkra-3be6f-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "tkra-3be6f",
-    storageBucket: "tkra-3be6f.firebasestorage.app",
-    messagingSenderId: "578959003469",
-    appId: "1:578959003469:web:48738ba29c6c31caf9f104"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  const form = document.getElementById('guestbookForm');
-  const displayArea = document.getElementById('guestbookEntries');
-
-  // --- 1. Fungsi Simpan Komentar ---
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('guestName').value;
-    const message = document.getElementById('guestMessage').value;
-
-    const postRef = ref(db, 'komentar');
-    const newPostRef = push(postRef);
-
-    set(newPostRef, {
-      nama: name,
-      pesan: message,
-      waktu: new Date().toLocaleString('id-ID')
-    }).then(() => {
-      form.reset(); 
-      alert("Komentar terkirim!");
-    });
-  });
-
-  // --- 2. Fungsi Tampil Komentar & Tombol Hapus ---
-  onValue(ref(db, 'komentar'), (snapshot) => {
-    displayArea.innerHTML = "";
-    const data = snapshot.val();
-    
-    const isAdmin = window.adminMode; 
-
-    if (data) {
-      Object.keys(data).reverse().forEach(key => {
-        const item = data[key];
-        const card = `
+                if (data) {
+                    Object.keys(data)
+                        .reverse()
+                        .forEach(key => {
+                            const item = data[key];
+                            const card = `
           <div style="background:#111; border:1px solid red; padding:15px; border-radius:10px; margin-top:15px; position:relative;">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-                <strong style="color:red; font-size:16px;">@${item.nama.toLowerCase().replace(/\s/g, '_')}</strong>
+                <strong style="color:red; font-size:16px;">@${item.nama.toLowerCase().replace(/\s/g, "_")}</strong>
                 <small style="color:#555;">${item.waktu}</small>
             </div>
             <p style="margin-top:8px; color:#ddd; line-height:1.4;">${item.pesan}</p>
 
-            ${isAdmin ? `
+            ${
+                isAdmin
+                    ? `
               <button onclick="hapusPesan('${key}')" style="background:red; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer; margin-top:10px; font-weight:bold;">
                 <i class="fas fa-trash"></i> Hapus
               </button>
-            ` : ""}
+            `
+                    : ""
+            }
           </div>
         `;
-        displayArea.innerHTML += card;
-      });
-    }
-  });
+                            displayArea.innerHTML += card;
+                        });
+                }
+            });
 
-  // --- 3. Fungsi Hapus Data ---
-  window.hapusData = (key) => {
-    if(confirm("Hapus pesan ini secara permanen?")) {
-      remove(ref(db, 'komentar/' + key))
-        .then(() => alert("Terhapus!"))
-        .catch((err) => alert("Gagal: " + err));
-    }
-  };
-</script>
-</body>
+            // --- 3. Fungsi Hapus Data ---
+            window.hapusData = key => {
+                if (confirm("Hapus pesan ini secara permanen?")) {
+                    remove(ref(db, "komentar/" + key))
+                        .then(() => alert("Terhapus!"))
+                        .catch(err => alert("Gagal: " + err));
+                }
+            };
+        </script>
+    </body>
 </html>
