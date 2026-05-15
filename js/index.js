@@ -57,7 +57,7 @@ function setupMediaSession() {
                 { 
                     src: 'Logo.webp', 
                     sizes: '512x512', 
-                    type: 'image/webp' 
+                    type: 'image/Webp' 
                 }
             ]
         });
