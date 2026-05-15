@@ -55,7 +55,6 @@ function setupMediaSession() {
             artist: 'Sheila On 7',
             artwork: [
                 { 
-                    // Tetap begini karena sampul.jpg sejajar dengan index.html
                     src: 'Logo.webp', 
                     sizes: '512x512', 
                     type: 'image/webp' 
