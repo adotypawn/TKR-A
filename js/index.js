@@ -49,7 +49,7 @@ function showToast() {
 }
 
 function setupMediaSession() {
-    if ('mediaSession' in navigator) {
+    if ('mediaSession' in navigator && window.MediaMetadata) {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: 'Sebuah Kisah Klasik',
             artist: 'Sheila On 7',
@@ -57,12 +57,13 @@ function setupMediaSession() {
                 { 
                     src: 'Logo.webp', 
                     sizes: '512x512', 
-                    type: 'image/Webp' 
+                    type: 'image/webp' // 
                 }
             ]
         });
     }
 }
+
 
 
 // Fitur Pause saat keluar aplikasi
