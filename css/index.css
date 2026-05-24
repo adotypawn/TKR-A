@@ -863,3 +863,48 @@ footer h2::after {
     opacity: 0;
     visibility: hidden;
 }
+
+/* =================================================
+   11. SYSTEM ANIMASI PREMIUM
+   ================================================= */
+
+/* Animasi 1: Efek teks neon bergetar/berdenyut */
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.6), 0 0 10px #ffffff;
+        transform: scale(1.02);
+    }
+}
+
+/* Animasi 2: Memunculkan elemen dengan mulus dari bawah */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi 3: Cahaya berjalan pada border kartu (Glow Run) */
+@keyframes borderGlow {
+    0% { border-color: rgba(255, 0, 0, 0.3); }
+    50% { border-color: rgba(255, 0, 0, 1); box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+    100% { border-color: rgba(255, 0, 0, 0.3); }
+}
+
+/* Terapkan animasi ke elemen Hero Title secara otomatis */
+.hero .highlight {
+    display: inline-block;
+    animation: neonPulse 3s infinite ease-in-out;
+}
+
+/* Terapkan animasi ke kartu informasi agar berdenyut elegan */
+.about-cards .card, .countdown, .guestbook {
+    animation: borderGlow 4s infinite ease-in-out;
+}
