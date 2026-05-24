@@ -752,8 +752,10 @@ footer {
     align-items: center;
     gap: 20px;
     width: 100%;
-    position: relative;
-    z-index: 10;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    z-index: 999;
 }
 
 footer h2 {
