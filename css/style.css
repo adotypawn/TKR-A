@@ -751,6 +751,9 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 footer h2 {
@@ -871,11 +874,17 @@ footer h2::after {
 
 /* Animasi 1: Efek teks neon bergetar/berdenyut */
 @keyframes neonPulse {
-    0%, 100% {
-        text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.4);
+    0%,
+    100% {
+        text-shadow:
+            0 0 15px rgba(255, 0, 0, 0.8),
+            0 0 30px rgba(255, 0, 0, 0.4);
     }
     50% {
-        text-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.6), 0 0 10px #ffffff;
+        text-shadow:
+            0 0 25px rgba(255, 0, 0, 1),
+            0 0 50px rgba(255, 0, 0, 0.6),
+            0 0 10px #ffffff;
         transform: scale(1.02);
     }
 }
@@ -894,9 +903,16 @@ footer h2::after {
 
 /* Animasi 3: Cahaya berjalan pada border kartu (Glow Run) */
 @keyframes borderGlow {
-    0% { border-color: rgba(255, 0, 0, 0.3); }
-    50% { border-color: rgba(255, 0, 0, 1); box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
-    100% { border-color: rgba(255, 0, 0, 0.3); }
+    0% {
+        border-color: rgba(255, 0, 0, 0.3);
+    }
+    50% {
+        border-color: rgba(255, 0, 0, 1);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    }
+    100% {
+        border-color: rgba(255, 0, 0, 0.3);
+    }
 }
 
 /* Terapkan animasi ke elemen Hero Title secara otomatis */
@@ -906,7 +922,9 @@ footer h2::after {
 }
 
 /* Terapkan animasi ke kartu informasi agar berdenyut elegan */
-.about-cards .card, .countdown, .guestbook {
+.about-cards .card,
+.countdown,
+.guestbook {
     animation: borderGlow 4s infinite ease-in-out;
 }
 
@@ -915,7 +933,7 @@ footer h2::after {
     border-radius: 12px;
     background: #111;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
     /* --- ANIMASI AMAN UNTUK HP --- */
@@ -925,11 +943,21 @@ footer h2::after {
 }
 
 /* Membuat jeda muncul (delay) otomatis agar foto muncul bergantian secara estetik */
-.foto-item:nth-child(1) { animation-delay: 0.1s; }
-.foto-item:nth-child(2) { animation-delay: 0.15s; }
-.foto-item:nth-child(3) { animation-delay: 0.2s; }
-.foto-item:nth-child(4) { animation-delay: 0.25s; }
-.foto-item:nth-child(5) { animation-delay: 0.3s; }
+.foto-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.foto-item:nth-child(2) {
+    animation-delay: 0.15s;
+}
+.foto-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.foto-item:nth-child(4) {
+    animation-delay: 0.25s;
+}
+.foto-item:nth-child(5) {
+    animation-delay: 0.3s;
+}
 /* Untuk sisa foto lainnya akan langsung mengikuti animasi utama */
 
 /* Keyframe Animasi Muncul */
