@@ -203,3 +203,37 @@ window.hapusPesan = function(key) {
     }
 };
 
+// --- ANIMASI MUNCUL SAAT DI-SCROLL ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Cari semua elemen section yang ingin diberikan animasi
+    const sections = document.querySelectorAll("section, .foto-item, .video, .card");
+
+    // Atur opsi deteksi scroll
+    const observerOptions = {
+        root: null,
+        threshold: 0.1, // Elemen akan terpicu jika 10% sudah muncul di layar
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Berikan gaya transisi secara instant saat terdeteksi
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                entry.target.style.transition = "all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)";
+                observer.unobserve(entry.target); // Cukup animasi sekali saja
+            }
+        });
+    }, observerOptions);
+
+    // Setup kondisi awal elemen sebelum di-scroll (disembunyikan sedikit)
+    sections.forEach(section => {
+        // Abaikan section home agar halaman utama langsung muncul tanpa nunggu di-scroll
+        if (section.id !== "home") {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(30px)";
+            sectionObserver.observe(section);
+        }
+    });
+});
