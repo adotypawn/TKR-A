@@ -5,27 +5,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #0a0a0a;
+    background-color: #050505;
     color: #ffffff;
     overflow-x: hidden;
 }
 
+/* Kustomisasi Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
 /* =================================================
-   2. HEADER & NAVIGASI
+   2. HEADER & NAVIGASI (Glassmorphism Premium)
    ================================================= */
 .main-header {
-    background-color: #000;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: white;
     padding: 15px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 4px solid #ff0000;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
@@ -39,22 +57,26 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .logo img {
-    height: 40px;
-    border-radius: 15rem;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 .brand-name {
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
-    color: #ff0000;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
-/* Navigasi Desktop */
 #nav-container {
     display: flex;
     align-items: center;
@@ -67,27 +89,36 @@ body {
 }
 
 .nav-list a {
-    color: white;
+    color: #cccccc;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: 0.3s;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
 .nav-list a:hover {
-    color: #ff0000;
+    color: #ffffff;
+    background: rgba(255, 0, 0, 0.1);
     text-shadow: 0 0 10px #ff0000;
 }
 
 .admin-toggle {
-    color: #ff0000; /* Warna merah agar mencolok sebagai admin */
+    color: #ff0000;
     cursor: pointer;
-    background-color: transparent !important;
+    background: transparent;
     border: none;
-    box-shadow: none;
     padding: 5px 10px;
     font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.admin-toggle:hover {
+    transform: scale(1.1);
+    color: #fff;
 }
 
 .menu-toggle {
@@ -95,530 +126,451 @@ body {
     background: none;
     border: 2px solid #ff0000;
     color: #ff0000;
-    padding: 5px 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
     font-size: 1.2rem;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Responsive Mobile Nav */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
+    .menu-toggle { display: block; }
     #nav-container {
-        display: none; /* Sembunyi default */
+        display: none;
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
-        border-bottom: 3px solid #ff0000;
+        background-color: rgba(5, 5, 5, 0.98);
+        border-bottom: 2px solid #ff0000;
+        backdrop-filter: blur(20px);
     }
-
-    #nav-container.active {
-        display: block;
-    }
-
+    #nav-container.active { display: block; }
     .nav-list {
         flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        padding: 30px 20px;
+        gap: 20px;
         text-align: center;
     }
+    .nav-list a { font-size: 1rem; display: block; }
 }
 
 /* =================================================
-   3. HERO SECTION
+   3. HERO SECTION (Cyberpunk Glow)
    ================================================= */
 .hero {
-    height: 100vh;
+    height: calc(100vh - 75px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url("background.jpg");
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.15) 0%, rgba(5, 5, 5, 1) 70%), url("background.jpg");
     background-size: cover;
     background-position: center;
+    padding: 20px;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
     text-transform: uppercase;
-    text-shadow: 0 0 20px #ff0000;
+    letter-spacing: -1px;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .hero .highlight {
     color: #ff0000;
-    display: block;
+    display: inline-block;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.4);
 }
 
 .hero-badge {
     background: #ff0000;
-    color: #000;
-    padding: 5px 20px;
-    font-weight: bold;
+    color: #fff;
+    padding: 6px 24px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     display: inline-block;
-    margin-bottom: 20px;
-    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-    background: #ff0000;
-    padding: 10px 20px;
+    margin-bottom: 25px;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
 .hero-subtitle {
-    font-size: 1.4rem;
-    color: #cccccc;
+    font-size: 1.5rem;
+    color: #aaaaaa;
     margin-bottom: 5px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 2px;
 }
 
 .hero-year {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    color: #ff0000;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    color: #ffffff;
+    letter-spacing: 4px;
     margin-bottom: 25px;
 }
 
 .hero-description {
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255, 0, 0, 0.05);
     border-left: 4px solid #ff0000;
-    padding: 20px 25px;
-    margin-bottom: 30px;
-    text-align: left;
+    padding: 15px 25px;
+    margin: 0 auto;
+    max-width: 500px;
+    border-radius: 0 8px 8px 0;
+    backdrop-filter: blur(5px);
 }
 
 .hero-description p {
-    color: #dddddd;
-    line-height: 1.8;
+    color: #cccccc;
+    line-height: 1.6;
     font-size: 1rem;
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero-year { font-size: 2rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+}
+
 /* =================================================
-   4. SECTIONS (FOTO, VIDEO, DLL)
+   4. SECTIONS (Layout Global)
    ================================================= */
 section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 100vh;
 }
 
 h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #ff0000;
-    margin-bottom: 40px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 50px;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
+    position: relative;
 }
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff0000;
+    margin: 15px auto 0 auto;
+    box-shadow: 0 0 10px #ff0000;
+    border-radius: 2px;
+}
+
+/* =================================================
+   5. GALERI FOTO (Grid Modern & Hover Glow)
+   ================================================= */
+.photo-section { background: #050505; }
 
 .foto-list {
     display: grid;
-    /* Browser otomatis ngatur kolom: minimal 250px per foto */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.foto-item {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .foto-card {
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
-    border: 3px solid #ff0000;
-    transition: 0.4s;
+    display: block;
+    transition: all 0.5s ease;
     cursor: pointer;
 }
 
-.foto-card:hover {
-    transform: scale(1.05);
-    border-color: white;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+/* Efek Hover Keren */
+.foto-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 0, 0, 0.6);
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.25);
 }
 
-/* Grid Video */
+.foto-item:hover .foto-card {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* =================================================
+   6. GRID VIDEO (Premium Card)
+   ================================================= */
 .video-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
 .video {
-    background: #000;
-    border: 2px solid #ff0000;
-    position: relative;
+    background: #0f0f0f;
+    border-radius: 12px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video:hover {
+    transform: scale(1.02);
+    border-color: #ff0000;
 }
 
 .video video {
     width: 100%;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 /* =================================================
-   5. COUNTDOWN TIMER
+   7. ABOUT & COUNTDOWN (Gaya Dashboard Modern)
    ================================================= */
+.about-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.about-cards .card {
+    background: #0f0f0f;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 250px;
+    flex: 1;
+    max-width: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.about-cards .card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 0, 0, 0.4);
+    background: linear-gradient(145deg, #0f0f0f 0%, #150505 100%);
+}
+
+.about-cards .card i {
+    font-size: 2.8rem;
+    color: #ff0000;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+}
+
+.about-cards .card h3 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.about-cards .card p {
+    font-size: 1rem;
+    color: #aaaaaa;
+}
+
+/* Box Countdown Bulat/Glow */
 .countdown {
-    background: #000;
-    border: 3px solid #ff0000;
-    padding: 40px;
-    margin-top: 50px;
+    text-align: center;
+    padding: 50px 30px;
+    background: #0f0f0f;
+    border-radius: 20px;
+    margin-top: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.countdown h3 {
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
 }
 
 #countdownTimer {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .time-box {
-    background: #ff0000;
-    color: #000;
-    padding: 15px;
-    min-width: 90px;
-    text-align: center;
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 100px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: inset 0 0 15px rgba(255, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.time-box:hover {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
 }
 
 .time-box span {
-    font-size: 2rem;
+    font-size: 2.8rem;
     font-weight: 900;
     display: block;
-}
-
-/* =================================================
-   6. GUESTBOOK / KOMENTAR
-   ================================================= */
-.guestbook {
-    background: #111;
-    border: 2px solid #ff0000;
-    padding: 20px;
-}
-
-#guestbookForm input,
-#guestbookForm textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    background: #000;
-    border: 1px solid #ff0000;
-    color: white;
-}
-
-.chat-entry {
-    background: rgba(255, 0, 0, 0.1);
-    border-left: 5px solid #ff0000;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-/* =================================================
-   7. LOADER & UI LAINNYA
-   ================================================= */
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    gap: 20px;
-    transition: opacity 0.5s ease;
-    opacity: 1;
-    visibility: visible;
-}
-
-.progress-container {
-    width: 250px; /* Lebar bar */
-    height: 8px; /* Tebal bar */
-    background: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.progress-bar {
-    width: 100%;
-    height: 100%;
-    background: #ff0000; /* Warna merah */
-    box-shadow: 0 0 15px #ff0000; /* Efek Glow */
-    animation: loading-lurus 2s infinite ease-in-out;
-    transform-origin: left;
-}
-
-/* Keyframes untuk gerak dari kiri ke kanan */
-@keyframes loading-lurus {
-    0% {
-        transform: scaleX(0);
-    }
-    50% {
-        transform: scaleX(1);
-    }
-    100% {
-        transform: scaleX(0);
-        transform-origin: right;
-    }
-}
-
-/* Gaya Teks */
-.loader-text {
-    text-align: center;
-}
-
-.loader-text h1 {
     color: #ff0000;
-    font-size: 24px;
-    margin-bottom: 5px;
-    text-shadow: 0 0 10px #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
 
-.loader-text span {
-    color: #fff;
-    letter-spacing: 2px;
-    font-size: 12px;
-    opacity: 0.8;
-}
-
-.loader.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-#backToTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff0000;
-    color: #000;
-    border: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: none;
-}
-
-footer {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5%;
-    background: #000000;
-    border-top: 4px solid #ff0000;
-    flex-wrap: wrap;
-    gap: 10px;
-    box-shadow: 0 -10px 30px rgba(255, 0, 0, 0.2);
-}
-
-footer h2 {
-    font-size: 0.9rem;
-    color: #ffffff;
+.time-box p {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: #aaaaaa;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.social-media {
-    display: flex;
-    gap: 20px;
+/* Responsive About Mobile */
+@media (max-width: 768px) {
+    .about-cards .card { min-width: 100%; }
+    .time-box { min-width: 75px; padding: 15px 10px; }
+    .time-box span { font-size: 1.8rem; }
+    .time-box p { font-size: 0.7rem; }
 }
 
-.social-media a {
-    color: #ff0000;
-    font-size: 1.5rem;
-    transition: 0.3s;
-    padding: 10px;
-    border: 2px solid #ff0000;
-    border-radius: 0;
-}
-
-.social-media a:hover {
-    color: #000000;
-    background: #ff0000;
-    transform: scale(1.2);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
-}
-footer {
-    padding: 15px !important;
-    flex-direction: column;
-    text-align: center;
-    gap: 10px !important;
-}
-
-footer h2 {
-    font-size: 0.8rem !important;
-}
-
-.social-media {
-    gap: 15px;
-}
-
-.social-media a {
-    font-size: 1.2rem !important;
-    padding: 8px !important;
-}
-
-/* --- Container Utama (Guestbook) --- */
+/* =================================================
+   8. GUESTBOOK / KOMENTAR (Elegant Dark UI)
+   ================================================= */
 .guestbook {
     width: 100%;
-    max-width: 450px;
-    border: 2px solid #ff0000; /* Border merah terang sesuai gambar */
-    margin: 50px auto;
-    padding: 25px;
-    text-align: center;
-    background-color: transparent;
+    max-width: 550px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 20px;
+    background: #0f0f0f;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* --- Judul --- */
 .guestbook h3 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
     color: #ffffff;
 }
 
-.guestbook h3 i {
-    margin-right: 8px;
-}
-
-/* --- Baris Tombol (Admin, JSON, dll) --- */
 .guestbook-tools {
-    display: none;
+    display: flex;
     justify-content: center;
-    gap: 4px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .btn-tool {
-    background-color: #ffffff;
-    color: #000;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 3px 8px;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    display: none;
-}
-
-.btn-tool:hover {
-    display: none;
-    background-color: #e0e0e0;
-}
-.btn-tool {
-    display: none;
-    padding: 10px 15px;
-    background: #ff0000;
-    border: 2px solid #fff;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-.btn-tool:hover {
-    display: none;
-    background: #fff;
-    color: #ff0000;
-}
-
-.search-box {
-    margin-bottom: 10px;
-}
-#searchInput {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ff0000;
-    background: #1a0000;
-    color: #fff;
-    border-radius: 5px;
-}
-
-/* DELETE BUTTON */
-.delete-btn {
-    background: #ff0000;
-    border: none;
-    color: #fff;
-    padding: 6px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 8px;
-}
-.delete-btn:hover {
-    background: #cc0000;
-}
-.guestbook-tools {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-.btn-tool {
-    padding: 10px 15px;
-    background: #ff0000;
-    border: 2px solid #fff;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-.btn-tool:hover {
-    background: #fff;
-    color: #ff0000;
-}
-
-#submitBtn {
-    background-color: #ff0000;
+    background: #1a1a1a;
     color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-family: sans-serif;
-    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-tool:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+#searchInput, #guestName, #guestMessage {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#searchInput:focus, #guestName:focus, #guestMessage:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    background: #1a1a1a;
+}
+
+#guestMessage { height: 120px; resize: vertical; }
+
+#submitBtn {
+    background: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
     transition: all 0.3s ease;
-    margin: 10px auto;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
 
 #submitBtn:hover {
-    background-color: #9e0000; /* Berubah sedikit abu-abu */
-    transform: translateY(-2px); /* Tombol sedikit terangkat */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
 }
 
-#submitBtn:active {
-    transform: translateY(0);
+/* Container Tampilan Chat Firebase */
+#guestbookEntries {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 25px;
+    padding-right: 5px;
 }
 
-#submitBtn i {
-    font-size: 12px;
-    color: #ffffff;
+/* Custom styling for injection inside firebase list */
+#guestbookEntries > div {
+    background: #151515 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid #ff0000 !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    margin-top: 12px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* =================================================
+   9. MODAL VIEW / LIGHTBOX FOTO
+   ================================================= */
 .modal {
     display: none;
     position: fixed;
@@ -627,298 +579,134 @@ footer h2 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.98);
-    animation: zoomIn 0.3s;
-    border: 5px solid #ff0000;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    background-color: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 80vh;
-    margin-top: 8%;
-    border-radius: 0;
+    max-width: 85%;
+    max-height: 75vh;
+    margin-top: 6%;
+    border-radius: 12px;
     object-fit: contain;
-    border: 4px solid #ff0000;
-    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    animation: zoomIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #ff0000;
-    font-size: 40px;
+    top: 25px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 35px;
     cursor: pointer;
     transition: 0.3s;
-    z-index: 2001;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    font-weight: bold;
+    opacity: 0.7;
 }
 
-.close:hover {
+.close:hover { opacity: 1; transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    .modal-content { max-width: 95%; margin-top: 25%; }
+    .close { top: 15px; right: 20px; font-size: 30px; }
+}
+
+/* =================================================
+   10. INTERFACE UTILITY (Toast, Back To Top, Footer)
+   ================================================= */
+#custom-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    transform: none;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: none;
+    animation: flexIn 0.5s ease;
+}
+
+@keyframes flexIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ff0000;
     color: #ffffff;
-    transform: scale(1.3);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    transition: 0.3s;
+    z-index: 99;
 }
 
-/* Countdown - MOBILE */
-.countdown {
-    padding: 20px 15px !important;
-    border-width: 2px !important;
+#backToTop:hover {
+    background: #cc0000;
+    transform: translateY(-3px);
 }
 
-.countdown h3 {
-    font-size: 1rem !important;
-}
-
-#countdownTimer {
-    gap: 8px !important;
-}
-
-.time-box {
-    padding: 12px 10px !important;
-    min-width: 65px !important;
-    border-width: 2px !important;
-}
-
-.time-box span {
-    font-size: 1.4rem !important;
-}
-
-.time-box p {
-    font-size: 0.65rem !important;
-}
-
-/* ============================
-   MODAL - MOBILE
-============================ */
-.modal-content {
-    max-width: 95% !important;
-    margin-top: 25% !important;
-    border-width: 2px !important;
-}
-
-.close {
-    top: 10px !important;
-    right: 15px !important;
-    font-size: 30px !important;
-}
-
-/* ============================
-   FOOTER - MOBILE
-============================ */
 footer {
-    padding: 15px !important;
-    flex-direction: column;
+    background: #090909;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 20px;
     text-align: center;
-    gap: 10px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 footer h2 {
-    font-size: 0.8rem !important;
+    font-size: 1rem;
+    color: #888888;
+    letter-spacing: 1px;
+    margin-bottom: 0;
 }
 
-.social-media {
-    gap: 15px;
-}
+footer h2::after { display: none; }
+
+.social-media { display: flex; gap: 15px; }
 
 .social-media a {
-    font-size: 1.2rem !important;
-    padding: 8px !important;
-}
-
-/* ============================
-   LOADER - MOBILE
-============================ */
-.loader-content h2 {
-    font-size: 1.5rem !important;
-}
-
-.spinner {
-    width: 45px !important;
-    height: 45px !important;
-}
-
-.about-cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-bottom: 40px;
-}
-
-.about-cards .card {
-    background: #000000;
-    padding: 35px 30px;
-    border-radius: 0;
-    text-align: center;
-    min-width: 200px;
-    flex: 1;
-    max-width: 280px;
-    border: 3px solid #ff0000;
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-}
-
-.about-cards .card i {
-    font-size: 2.5rem;
-    color: #ff0000;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-}
-
-.about-cards .card h3 {
-    margin-bottom: 15px;
-    color: #ff0000;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.about-cards .card p {
-    font-size: 1rem;
-    color: #cccccc;
-    font-weight: 500;
-}
-
-/* Countdown (MERAH HITAM) */
-.countdown {
-    text-align: center;
-    padding: 40px 30px;
-    background: #000000;
-    border-radius: 0;
-    margin-top: 40px;
-    border: 3px solid #ff0000;
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-}
-
-.countdown h3 {
-    margin-bottom: 25px;
-    color: #ff0000;
+    color: #aaaaaa;
     font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-}
-
-#countdownTimer {
+    transition: 0.3s ease;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
 }
 
-.time-box {
+.social-media a:hover {
+    color: #ffffff;
     background: #ff0000;
-    padding: 20px 25px;
-    border-radius: 0;
-    min-width: 80px;
-    border: 2px solid #ffffff;
-    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: translateY(-3px);
 }
-
-.time-box span {
-    font-size: 2.5rem;
-    font-weight: 900;
-    display: block;
-    color: #000000;
-    text-shadow: none;
-}
-
-.time-box p {
-    font-size: 0.85rem;
-    margin: 0;
-    color: #000000;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-/* ============================
-   ABOUT - MOBILE
-============================ */
-.about-cards {
-    gap: 15px !important;
-}
-
-.about-cards .card {
-    padding: 20px 15px !important;
-    min-width: 100% !important;
-    border-width: 2px !important;
-}
-
-.about-cards .card i {
-    font-size: 1.8rem !important;
-}
-
-.about-cards .card h3 {
-    font-size: 1rem !important;
-}
-
-.about-cards .card p {
-    font-size: 0.85rem !important;
-}
-
-/* Countdown - MOBILE */
-.countdown {
-    padding: 20px 15px !important;
-    border-width: 2px !important;
-}
-
-.countdown h3 {
-    font-size: 1rem !important;
-}
-
-#countdownTimer {
-    gap: 8px !important;
-}
-
-.time-box {
-    padding: 12px 10px !important;
-    min-width: 65px !important;
-    border-width: 2px !important;
-}
-
-.time-box span {
-    font-size: 1.4rem !important;
-}
-
-.time-box p {
-    font-size: 0.65rem !important;
-}
-
-#custom-toast {
-    position: fixed;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255,0, 0, 0.8);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-family: sans-serif;
-    display: none; /* Sembunyi dulu */
-    z-index: 9999;
-    animation: fadeInDown 1s;
-}
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -20px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-
