@@ -202,3 +202,11 @@ window.hapusPesan = function(key) {
         console.error("Fungsi hapusData belum siap di index.html");
     }
 };
+
+window.addEventListener("load", () => {
+    const socialBtn = document.getElementById("floatingSocialBtn");
+    if (socialBtn) {
+        socialBtn.style.opacity = "1";
+        socialBtn.style.pointerEvents = "auto"; // Mengaktifkan kembali fungsi klik
+    }
+});
