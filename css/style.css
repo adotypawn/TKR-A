@@ -771,33 +771,6 @@ footer h2::after {
     display: none;
 }
 
-.social-media {
-    display: flex;
-    gap: 15px;
-}
-
-.social-media a {
-    color: #aaaaaa;
-    font-size: 1.3rem;
-    transition: 0.3s ease;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-media a:hover {
-    color: #ffffff;
-    background: #ff0000;
-    border-color: #ff0000;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    transform: translateY(-3px);
-}
-
 .loader {
     position: fixed;
     top: 0;
@@ -873,7 +846,7 @@ footer h2::after {
 }
 
 /* =================================================
-   11. SYSTEM ANIMASI PREMIUM
+   11. SYSTEM ANIMASI 
    ================================================= */
 
 /* Animasi 1: Efek teks neon bergetar/berdenyut */
@@ -969,5 +942,54 @@ footer h2::after {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* =================================================
+   12. FLOATING SOCIAL BUTTON (NEON RED - LEFT)
+   ================================================= */
+.floating-social {
+    position: fixed;
+    bottom: 25px;
+    left: 25px; /* Pindah ke sebelah kiri */
+    z-index: 9999;
+}
+
+.floating-social .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: #090909;
+    border: 2px solid #ff0000; /* Menggunakan warna merah utama web */
+    border-radius: 50%;
+    color: #ff0000; /* Ikon warna merah */
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* Glow merah */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Animasi berdenyut naik-turun halus */
+    animation: floatingPulseLeft 2s infinite ease-in-out;
+}
+
+/* Efek saat tombol disentuh di HP / Hover di Desktop */
+.floating-social .social-icon:hover {
+    background: #ff0000;
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+    transform: scale(1.1) rotate(-10deg); /* Rotasi sedikit ke kiri */
+}
+
+/* Keyframe Animasi Denyut Cahaya */
+@keyframes floatingPulseLeft {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    }
+    50% {
+        transform: translateY(-6px);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
     }
 }
