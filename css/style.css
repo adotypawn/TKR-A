@@ -694,7 +694,7 @@ h2::after {
 #custom-toast {
     position: fixed;
     bottom: 30px;
-    left: 130px;
+    left: 120px;
     transform: translateX(-50);
     background: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(8px);
