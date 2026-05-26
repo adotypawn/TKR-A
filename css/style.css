@@ -694,7 +694,7 @@ h2::after {
 #custom-toast {
     position: fixed;
     bottom: 30px;
-    left: 50px;
+    left: 80px;
     transform: translateX(-50);
     background: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(8px);
@@ -969,7 +969,7 @@ footer h2::after {
     text-decoration: none;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* Glow merah */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    
+
     /* Animasi berdenyut naik-turun halus */
     animation: floatingPulseLeft 2s infinite ease-in-out;
 }
@@ -984,7 +984,8 @@ footer h2::after {
 
 /* Keyframe Animasi Denyut Cahaya */
 @keyframes floatingPulseLeft {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
         box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     }
