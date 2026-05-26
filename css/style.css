@@ -696,8 +696,9 @@ h2::after {
     bottom: 30px;
     left: 105px;
     transform: translateX(-50);
-    background: rgba(20, 20, 20, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 0, 0, 0.3);
     color: white;
     padding: 12px 24px;
