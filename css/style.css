@@ -365,6 +365,7 @@ h2::after {
     background: #0f0f0f;
     border-radius: 12px;
     overflow: hidden;
+    height: auto;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transition:
