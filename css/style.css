@@ -545,6 +545,7 @@ h2::after {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+    display: none;
 }
 
 .btn-tool:hover {
