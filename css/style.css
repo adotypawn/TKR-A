@@ -357,8 +357,9 @@ h2::after {
    ================================================= */
 .video-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
+    align-items: start;
 }
 
 .video {
@@ -381,8 +382,8 @@ h2::after {
 .video video {
     width: 100%;
     display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 /* =================================================
