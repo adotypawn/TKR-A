@@ -20,19 +20,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Kustomisasi Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-    background: #ff0000;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
+/* Kustomisasi Scrollbar Modern & Ringan */
+html {
+    scrollbar-color: #ff0000 #0a0a0a;
+    scrollbar-width: thin;
 }
 
 /* =================================================
@@ -269,7 +260,7 @@ body {
     .hero {
         height: auto !important;
         min-height: calc(100vh - 75px);
- }
+    }
     .hero h1 {
         font-size: 2.8rem;
     }
@@ -633,7 +624,6 @@ h2::after {
         margin-bottom: 40px !important;
     }
 }
-
 
 /* =================================================
    9. MODAL VIEW / LIGHTBOX FOTO
