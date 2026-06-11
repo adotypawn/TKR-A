@@ -321,7 +321,6 @@ h2::after {
     border-radius: 12px;
     background: #111;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -730,7 +729,7 @@ h2::after {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #ffffff;
+    background: #000000;
     color: #ff0000;
     border: none;
     width: 45px;
