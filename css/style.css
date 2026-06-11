@@ -736,6 +736,8 @@ h2::after {
     right: 30px;
     background: #000000;
     color: #ff0000;
+    border: 2px solid #ff0000; 
+    border-radius: 50%;
     border: none;
     width: 45px;
     height: 45px;
@@ -945,12 +947,13 @@ footer h2::after {
     width: 55px;
     height: 55px;
     background: #090909;
-    border: 2px solid #ff0000; /* Menggunakan warna merah utama web */
+    cursor: pointer;
+    border: 2px solid #ff0000;  
     border-radius: 50%;
-    color: #ff0000; /* Ikon warna merah */
+    color: #ff0000; 
     font-size: 24px;
     text-decoration: none;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* Glow merah */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); 
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     /* Animasi berdenyut naik-turun halus */
