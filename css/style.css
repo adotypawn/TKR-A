@@ -923,36 +923,14 @@ footer h2::after {
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-    /* --- ANIMASI AMAN UNTUK HP --- */
     opacity: 0;
-    transform: translateY(20px);
-    animation: munculMulus 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: pudarMulus 0.5s ease forwards;
 }
 
-/* Membuat jeda muncul (delay) otomatis agar foto muncul bergantian secara estetik */
-.foto-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-.foto-item:nth-child(2) {
-    animation-delay: 0.15s;
-}
-.foto-item:nth-child(3) {
-    animation-delay: 0.2s;
-}
-.foto-item:nth-child(4) {
-    animation-delay: 0.25s;
-}
-.foto-item:nth-child(5) {
-    animation-delay: 0.3s;
-}
-/* Untuk sisa foto lainnya akan langsung mengikuti animasi utama */
-
-/* Keyframe Animasi Muncul */
-@keyframes munculMulus {
+/* Keyframe baru yang hanya mengatur transparansi */
+@keyframes pudarMulus {
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
