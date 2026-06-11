@@ -346,6 +346,11 @@ h2::after {
     filter: brightness(1.1);
 }
 
+#foto {
+    will-change: transform, opacity;
+}
+
+
 /* =================================================
    6. GRID VIDEO (Premium Card)
    ================================================= */
