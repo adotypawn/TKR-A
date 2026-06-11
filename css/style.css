@@ -730,8 +730,8 @@ h2::after {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #ff0000;
-    color: #ffffff;
+    background: #ffffff;
+    color: #ff0000;
     border: none;
     width: 45px;
     height: 45px;
